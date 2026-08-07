@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>나의 독서 편식 진단 — 이서윤</title>
+<meta name="description" content="스무 개의 물음으로 그리는 내 독서의 지도. 여섯 영역 가운데 어디가 비어 있는지 보고, 그 자리를 채울 책을 골라 드립니다.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="이서윤 · 우티스">
+<meta property="og:title" content="나의 독서 편식 진단">
+<meta property="og:description" content="스무 개의 물음, 3분. 여섯 영역 중 내 독서에서 비어 있는 자리를 찾고, 그 자리를 채울 책을 추천받습니다.">
+<meta property="og:image" content="https://outis-books.github.io/reading/og-reading.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://outis-books.github.io/reading/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light only;
+    --paper:#FAF6EF;
+    --paper-2:#F3ECE0;
+    --ink:#2B2622;
+    --ink-soft:#6B6058;
+    --line:#E0D5C4;
+    --accent:#A6512F;
+    --accent-soft:#F7E4D7;
+    --gold:#8A5A16;
+    --green:#2C5A3B;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+    line-height:1.7;
+    word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:""; display:block; height:6px;
+    background:linear-gradient(90deg,#A6512F 0 25%,#2F5573 25% 50%,#6B4270 50% 75%,#2C5A3B 75% 100%);
+    position:sticky; top:0; z-index:5;
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:28px 20px 72px;}
+  .serif{font-family:'Noto Serif KR', serif;}
+
+  /* ── 표지 ── */
+  #cover{text-align:center; padding-top:44px;}
+  .badge{
+    display:inline-block; font-size:12px; letter-spacing:.18em;
+    color:var(--accent); border:1px solid var(--line);
+    background:#fff; padding:6px 14px; border-radius:999px; margin-bottom:26px;
+  }
+  h1{
+    font-family:'Noto Serif KR', serif;
+    font-size:34px; line-height:1.35; margin:0 0 6px; font-weight:700; letter-spacing:-.02em;
+  }
+  h1 .thin{display:block; font-size:17px; color:var(--ink-soft); font-weight:400; margin-top:12px; letter-spacing:0;}
+  .cover-lead{
+    margin:30px auto 0; max-width:430px; color:var(--ink-soft); font-size:15px; text-align:left;
+    background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px 22px;
+  }
+  .cover-lead p{margin:0 0 10px;}
+  .cover-lead p:last-child{margin:0;}
+  .cover-lead b{color:var(--ink);}
+  .meta{margin-top:22px; font-size:13px; color:var(--ink-soft);}
+  .btn{
+    display:inline-block; border:none; cursor:pointer; font:inherit;
+    background:var(--accent); color:#fff; padding:15px 42px; border-radius:999px;
+    font-size:16px; font-weight:600; margin-top:26px; letter-spacing:.02em;
+    transition:transform .12s ease, box-shadow .12s ease;
+    box-shadow:0 4px 14px rgba(166,81,47,.24);
+  }
+  .btn:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(166,81,47,.3);}
+  .btn:active{transform:translateY(0);}
+  .btn.ghost{background:#fff; color:var(--ink-soft); border:1px solid var(--line); box-shadow:none; font-weight:500; padding:12px 28px; font-size:14px;}
+
+  /* ── 문항 ── */
+  #quiz{display:none;}
+  .bar{height:4px; background:var(--paper-2); border-radius:99px; overflow:hidden; margin-bottom:8px;}
+  .bar i{display:block; height:100%; background:var(--accent); width:0; transition:width .3s ease;}
+  .counter{font-size:12px; color:var(--ink-soft); letter-spacing:.08em; margin-bottom:44px;}
+  .qnum{font-family:'Noto Serif KR', serif; font-size:15px; color:var(--accent); margin-bottom:12px;}
+  .qtext{
+    font-family:'Noto Serif KR', serif;
+    font-size:25px; line-height:1.55; margin:0 0 36px; letter-spacing:-.01em; min-height:120px;
+  }
+  .opts{display:flex; flex-direction:column; gap:9px;}
+  .opt{
+    text-align:left; font:inherit; font-size:15px; cursor:pointer;
+    background:#fff; border:1px solid var(--line); color:var(--ink);
+    padding:14px 18px; border-radius:11px; transition:all .12s ease;
+    display:flex; align-items:center; gap:12px;
+  }
+  .opt:hover{border-color:var(--accent); background:var(--accent-soft);}
+  .dot{width:9px; height:9px; border-radius:50%; background:var(--line); flex:none;}
+  .opt:hover .dot{background:var(--accent);}
+  .navrow{margin-top:26px; display:flex; justify-content:space-between; align-items:center;}
+  .back{background:none; border:none; font:inherit; font-size:14px; color:var(--ink-soft); cursor:pointer; padding:6px 0;}
+  .back:hover{color:var(--accent);}
+
+  /* ── 결과 ── */
+  #result{display:none;}
+  .score-card{text-align:center; padding:34px 20px 30px; background:#fff; border:1px solid var(--line); border-radius:18px;}
+  .score-label{font-size:13px; letter-spacing:.16em; color:var(--ink-soft);}
+  .score-num{font-family:'Noto Serif KR', serif; font-size:74px; line-height:1; margin:10px 0 4px; font-weight:700;}
+  .score-num small{font-size:22px; color:var(--ink-soft); font-weight:400;}
+  .verdict{font-family:'Noto Serif KR', serif; font-size:22px; margin:14px 0 0;}
+  .verdict-sub{font-size:14.5px; color:var(--ink-soft); margin:12px auto 0; max-width:400px;}
+
+  h2{
+    font-family:'Noto Serif KR', serif; font-size:19px;
+    margin:44px 0 16px; padding-bottom:9px; border-bottom:1px solid var(--line);
+    display:flex; align-items:baseline; gap:10px;
+  }
+  h2 em{font-style:normal; font-size:12px; color:var(--ink-soft); letter-spacing:.1em;}
+
+  .radar-box{background:#fff; border:1px solid var(--line); border-radius:18px; padding:10px 6px 4px;}
+  svg{display:block; width:100%; height:auto;}
+
+  .axis-row{display:flex; align-items:center; gap:12px; padding:11px 2px; border-bottom:1px dashed var(--line); font-size:14.5px;}
+  .axis-row:last-child{border-bottom:none;}
+  .axis-name{width:96px; flex:none; font-weight:600;}
+  .axis-bar{flex:1; height:9px; background:var(--paper-2); border-radius:99px; overflow:hidden;}
+  .axis-bar i{display:block; height:100%; border-radius:99px;}
+  .axis-val{width:44px; flex:none; text-align:right; color:var(--ink-soft); font-size:13px;}
+
+  .callout{background:var(--accent-soft); border-left:4px solid var(--accent); border-radius:0 12px 12px 0; padding:16px 18px; margin:16px 0; font-size:15px;}
+  .callout b{color:var(--accent);}
+
+  .rec-group{margin-bottom:26px;}
+  .rec-head{font-size:14px; color:var(--ink-soft); margin-bottom:10px;}
+  .rec-head b{color:var(--accent); font-size:16px;}
+  .book{background:#fff; border:1px solid var(--line); border-radius:13px; padding:15px 17px; margin-bottom:9px;}
+  .book .t{font-family:'Noto Serif KR', serif; font-size:17px; font-weight:700; letter-spacing:-.01em;}
+  .book .a{font-size:13px; color:var(--ink-soft); margin-top:1px;}
+  .book .w{font-size:14px; margin-top:9px; color:#4A423B;}
+  .first-pick{border-color:var(--accent); box-shadow:0 3px 12px rgba(166,81,47,.1);}
+  .tag{display:inline-block; font-size:11px; letter-spacing:.08em; background:var(--accent); color:#fff; padding:2px 9px; border-radius:99px; margin-bottom:8px;}
+
+  .habit{background:#fff; border:1px solid var(--line); border-radius:13px; padding:15px 17px; margin-bottom:9px; font-size:14.5px;}
+  .habit b{display:block; font-family:'Noto Serif KR', serif; font-size:16px; margin-bottom:5px;}
+  .habit.good b{color:var(--green);}
+  .habit.watch b{color:var(--gold);}
+
+  .footer{margin-top:48px; text-align:center; font-size:13px; color:var(--ink-soft); line-height:1.9;}
+  .footer .rule{width:40px; height:1px; background:var(--line); margin:0 auto 20px;}
+  .actions{margin-top:30px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+
+  @media (max-width:420px){
+    h1{font-size:28px;}
+    .qtext{font-size:21px; min-height:100px;}
+    .score-num{font-size:60px;}
+    .axis-name{width:78px; font-size:13.5px;}
+  }
+  @media print{
+    .actions,.footer .noprint{display:none;}
+    body{background:#fff;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ────────── 표지 ────────── -->
+  <section id="cover">
+    <span class="badge">독 서 진 단</span>
+    <h1>나의 독서 편식 진단
+      <span class="thin">스무 개의 물음으로 그리는 내 독서의 지도</span>
+    </h1>
+
+    <div class="cover-lead">
+      <p>우리는 대개 <b>읽던 쪽만 계속 읽습니다.</b> 소설만, 자기계발서만, 혹은 누가 좋다고 한 책만.</p>
+      <p>무엇을 읽었는지보다 <b>무엇을 한 번도 읽지 않았는지</b>가 그 사람을 더 정확히 말해 줍니다.</p>
+      <p>스무 개 물음에 답하시면 여섯 영역의 지도를 그려 드립니다. 그리고 <b>가장 얇은 자리를 채울 책</b>을 골라 드립니다.</p>
+    </div>
+
+    <button class="btn" onclick="start()">진단 시작하기</button>
+    <div class="meta">20문항 · 약 3분 · 아무것도 저장되지 않습니다</div>
+  </section>
+
+  <!-- ────────── 문항 ────────── -->
+  <section id="quiz">
+    <div class="bar"><i id="prog"></i></div>
+    <div class="counter"><span id="cnum">1</span> / 20</div>
+    <div class="qnum serif" id="qcat">이야기</div>
+    <p class="qtext" id="qtext"></p>
+    <div class="opts" id="opts"></div>
+    <div class="navrow">
+      <button class="back" id="backBtn" onclick="back()">← 이전 문항</button>
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ────────── 결과 ────────── -->
+  <section id="result"></section>
+
+</div>
+
+<script>
+/* ══════════════ 여섯 영역 ══════════════ */
+const AXES = [
+  {key:'story',  name:'이야기',     full:'소설 · 희곡',            color:'#A6512F'},
+  {key:'poem',   name:'시와 산문',   full:'시 · 에세이',            color:'#6B4270'},
+  {key:'mind',   name:'사람과 생각', full:'인문 · 철학',            color:'#2B3A55'},
+  {key:'world',  name:'세상과 시대', full:'역사 · 사회 · 논픽션',    color:'#2C5A3B'},
+  {key:'body',   name:'자연과 몸',   full:'과학 · 자연 · 의학',      color:'#8A5A16'},
+  {key:'craft',  name:'일과 기술',   full:'실용 · 자기계발 · 글쓰기', color:'#4A6670'}
+];
+
+/* ══════════════ 스무 개의 물음 ══════════════ */
+const Q = [
+  /* 1~12 영역 문항 (영역당 둘) */
+  {t:'소설을 읽다가 등장인물 때문에 마음이 흔들린 적이 최근 일 년 안에 있다.', ax:'story'},
+  {t:'한 해에 읽는 책 가운데 소설이나 희곡이 여러 권 섞여 있다.', ax:'story'},
+  {t:'시집이나 산문집을 직접 사서 읽는 편이다.', ax:'poem'},
+  {t:'내용보다 문장 자체가 좋아서 밑줄을 긋고 다시 읽은 책이 있다.', ax:'poem'},
+  {t:'철학자나 사상가가 쓴 책을 끝까지 읽어 본 적이 있다.', ax:'mind'},
+  {t:'"왜 사는가", "어떻게 살 것인가" 같은 물음을 다룬 책에 손이 간다.', ax:'mind'},
+  {t:'역사책이나 한 시대를 통째로 다룬 책을 읽는다.', ax:'world'},
+  {t:'나와 처지가 아주 다른 사람들의 삶을 담은 논픽션·르포를 읽는다.', ax:'world'},
+  {t:'과학이나 자연을 다룬 교양서를 읽는다.', ax:'body'},
+  {t:'몸, 나이 듦, 병에 관한 책을 읽어 본 적이 있다.', ax:'body'},
+  {t:'일·돈·기술을 다룬 실용서를 읽는다.', ax:'craft'},
+  {t:'무언가를 배우거나 써먹으려는 목적으로 책을 고를 때가 많다.', ax:'craft'},
+  /* 13~20 습관 문항 */
+  {t:'펼친 책은 웬만하면 끝까지 읽는 편이다.', hb:'finish'},
+  {t:'좋았던 책은 시간을 두고 다시 펴서 읽는다.', hb:'reread'},
+  {t:'어려워 보이는 책은 아예 손대지 않는다.', hb:'avoid', rev:true},
+  {t:'베스트셀러나 새로 나온 책 위주로 고른다.', hb:'new', rev:true},
+  {t:'읽고 나서 문장을 옮겨 적거나 어떤 식으로든 기록을 남긴다.', hb:'note'},
+  {t:'한 작가가 좋아지면 그 사람 책을 여러 권 찾아 읽는다.', hb:'author'},
+  {t:'읽은 책 이야기를 누군가와 나눈다.', hb:'share'},
+  {t:'읽고 싶어서가 아니라 읽어야 해서 펴는 책이 많다.', hb:'duty', rev:true}
+];
+
+const SCALE = ['전혀 아니다','그렇지 않다','보통이다','그런 편이다','매우 그렇다'];
+
+/* ══════════════ 처방전 — 디퍼님이 읽고 기록한 책에서 ══════════════ */
+const BOOKS = {
+  story:[
+    {t:'이처럼 사소한 것들', a:'클레어 키건', w:'백 쪽이 안 되는데 마지막 장에서 마음이 무너집니다. 소설이 오래 낯설었던 사람의 첫 책으로 이만한 것이 없습니다.'},
+    {t:'어서 오세요, 휴남동 서점입니다', a:'황보름', w:'힘을 주지 않고 넘어가는데, 덮고 나면 쉬었다는 감각이 남습니다. 소설로 돌아오는 계단.'},
+    {t:'마음', a:'나쓰메 소세키', w:'사람 마음의 안쪽을 이토록 끝까지 따라간 소설. 이야기가 왜 필요한지 알게 됩니다.'},
+    {t:'허삼관 매혈기', a:'위화', w:'웃다가 울게 됩니다. 소설이 지루하다는 말을 가장 빨리 뒤집는 책.'}
+  ],
+  poem:[
+    {t:'듣는 사람', a:'박연준', w:'시인이 쓴 산문. 시가 부담스럽다면 이 문 앞에서 시작하시면 됩니다.'},
+    {t:'사물의 뒷모습', a:'안규철', w:'미술가의 눈으로 본 사물들. 짧은 글 하나에 하루를 얹어 두기 좋습니다.'},
+    {t:'애도일기', a:'롤랑 바르트', w:'어머니를 잃은 뒤의 쪽지들. 문장이 무엇을 견딜 수 있는지 보여 줍니다.'},
+    {t:'나의 사유재산', a:'메리 루플', w:'산문이 이렇게까지 자유로울 수 있다는 것. 문장에 밑줄이 계속 그어집니다.'}
+  ],
+  mind:[
+    {t:'내가 틀릴 수도 있습니다', a:'비욘 나티코 린데블라드', w:'철학이 무겁게 느껴진다면 반드시 여기서부터. 승려가 된 경영인의 유언 같은 책.'},
+    {t:'자기 결정', a:'페터 비에리', w:'얇은데 오래 남습니다. "내 삶의 저자가 된다"는 말의 뜻을 처음으로 알게 됩니다.'},
+    {t:'몽테뉴, 사유의 힘', a:'임재성', w:'생각하는 법을 처음 배우는 자리. 몽테뉴 본문으로 넘어가는 다리가 됩니다.'},
+    {t:'채근담', a:'홍자성', w:'한 꼭지가 서너 줄. 매일 아침 한 장씩 여는 방식으로 읽으면 좋습니다.'}
+  ],
+  world:[
+    {t:'인간의 내밀한 역사', a:'시어도어 젤딘', w:'연표가 아니라 사람의 마음으로 쓴 역사. 역사책이 지루하다는 편견을 정면으로 깹니다.'},
+    {t:'교복 위에 작업복을 입었다', a:'허태준', w:'열여덟에 공장으로 간 사람의 기록. 얇고, 조용하고, 오래 남습니다.'},
+    {t:'일인칭 가난, 그러나 일인분은 아닌', a:'안온', w:'가난을 대상이 아니라 일인칭으로 씁니다. 내가 모르던 자리를 안에서 보게 됩니다.'},
+    {t:'나의 인생', a:'마르셀 라이히라니츠키', w:'한 사람의 생애를 따라 20세기를 통과합니다. 역사와 문학이 같은 자리에 있습니다.'}
+  ],
+  body:[
+    {t:'물고기는 존재하지 않는다', a:'룰루 밀러', w:'과학책이 재미없다는 말을 가장 빠르게 무너뜨립니다. 끝의 반전이 진짜입니다.'},
+    {t:'고맙습니다', a:'올리버 색스', w:'스무 쪽 남짓한 글 넷. 죽음을 앞둔 의사가 쓴 감사의 말이 평생 남습니다.'},
+    {t:'나이 든다는 것의 의미', a:'셔윈 눌랜드', w:'몸이 늙는다는 일을 의사의 눈과 사람의 마음으로 동시에 봅니다.'},
+    {t:'정원의 위로', a:'김선미', w:'식물 곁에서 회복한 사람의 기록. 자연을 다루는 글의 가장 다정한 입구.'}
+  ],
+  craft:[
+    {t:'아티스트 웨이', a:'줄리아 캐머런', w:'읽는 책이 아니라 하는 책. 모닝페이지 하나로 열두 주가 달라집니다.'},
+    {t:'동사의 맛', a:'김정선', w:'내 문장이 왜 어색한지 처음으로 설명해 줍니다. 쓰는 사람의 필수품.'},
+    {t:'매일 쓰고 다시 쓰고 끝까지 씁니다', a:'김호연', w:'재능이 아니라 일정으로 쓴다는 것. 계속 쓰게 만드는 책.'},
+    {t:'이동진 독서법', a:'이동진', w:'읽는 방식 자체를 손보고 싶을 때. 완독 강박을 내려놓게 해 줍니다.'}
+  ]
+};
+
+/* ══════════════ 상태 ══════════════ */
+let cur = 0;
+const ans = new Array(Q.length).fill(null);
+
+function start(){
+  document.getElementById('cover').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  render();
+}
+function render(){
+  const q = Q[cur];
+  document.getElementById('cnum').textContent = cur+1;
+  document.getElementById('prog').style.width = ((cur)/Q.length*100)+'%';
+  const cat = q.ax ? AXES.find(a=>a.key===q.ax).name : '읽는 방식';
+  document.getElementById('qcat').textContent = cat;
+  document.getElementById('qtext').textContent = q.t;
+  document.getElementById('backBtn').style.visibility = cur===0 ? 'hidden' : 'visible';
+
+  const box = document.getElementById('opts');
+  box.innerHTML = '';
+  SCALE.forEach((label,i)=>{
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = '<span class="dot"></span>' + label;
+    b.onclick = ()=>choose(i);
+    box.appendChild(b);
+  });
+  window.scrollTo({top:0, behavior:'instant'});
+}
+function choose(v){
+  ans[cur] = v;
+  if(cur < Q.length-1){ cur++; render(); }
+  else finish();
+}
+function back(){ if(cur>0){ cur--; render(); } }
+
+/* ══════════════ 채점 ══════════════ */
+function finish(){
+  const axScore = {};
+  AXES.forEach(a=>{
+    const items = Q.map((q,i)=>({q,i})).filter(o=>o.q.ax===a.key);
+    const sum = items.reduce((s,o)=>s+ans[o.i],0);
+    axScore[a.key] = Math.round(sum / (items.length*4) * 100);
+  });
+  const hb = {};
+  Q.forEach((q,i)=>{ if(q.hb) hb[q.hb] = ans[i]; });
+
+  const vals = AXES.map(a=>axScore[a.key]);
+  const mean = vals.reduce((s,v)=>s+v,0)/vals.length;
+  const sd = Math.sqrt(vals.reduce((s,v)=>s+(v-mean)*(v-mean),0)/vals.length);
+  let bias = Math.round(Math.min(100, sd/45*100));
+
+  const sorted = AXES.slice().sort((a,b)=>axScore[b.key]-axScore[a.key]);
+  const thick = sorted.slice(0,2);
+  const thin  = sorted.slice(-2).reverse(); // 얇은 쪽 (가장 얇은 것이 뒤)
+  const thinnest = sorted[sorted.length-1];
+
+  draw(axScore, hb, bias, mean, thick, thin, thinnest);
+}
+
+function verdictOf(bias, mean){
+  if(mean < 22) return {h:'편식 이전에, 양이 부족합니다',
+    s:'여섯 영역 모두가 얇습니다. 지금 필요한 건 균형이 아니라 한 권입니다. 아래 첫 번째 책 한 권만 끝내 보시면 지도가 달라집니다.'};
+  if(bias < 25) return {h:'고르게 읽는 잡식가입니다',
+    s:'여섯 영역이 눈에 띄게 기울지 않았습니다. 드문 경우입니다. 이제는 넓히기보다 한 영역을 깊이 파고들 때입니다.'};
+  if(bias < 45) return {h:'살짝 기울어 있습니다',
+    s:'치우쳤다고 할 정도는 아니지만, 손이 가는 쪽이 분명합니다. 얇은 두 자리에 한 권씩만 얹으면 균형이 잡힙니다.'};
+  if(bias < 65) return {h:'편식이 뚜렷합니다',
+    s:'읽는 쪽만 계속 읽고 계십니다. 잘 읽는 영역이 있다는 뜻이기도 하지만, 비어 있는 자리가 생각의 사각지대가 됩니다.'};
+  return {h:'편식이 심합니다',
+    s:'한두 영역이 서가를 거의 다 차지했습니다. 익숙한 쪽은 이미 충분합니다. 지금 필요한 책은 읽고 싶은 책이 아니라 읽지 않던 책입니다.'};
+}
+
+function habitLines(hb){
+  const out = [];
+  if(hb.avoid >= 3) out.push({k:'watch', t:'어려워 보이면 피하십니다', d:'이 습관 하나가 영역 하나를 통째로 비웁니다. 편식의 가장 흔한 원인이 취향이 아니라 두려움입니다. 어려운 책은 얇은 것부터 고르시면 됩니다.'});
+  if(hb.duty >= 3) out.push({k:'watch', t:'읽어야 해서 펴는 책이 많습니다', d:'의무로 읽으면 오래 못 갑니다. 열 권 중 두 권은 아무 쓸모 없는 책, 그냥 재미있는 책으로 두십시오.'});
+  if(hb.new >= 3) out.push({k:'watch', t:'신간과 베스트셀러 위주로 고르십니다', d:'서점 매대를 그대로 옮긴 목록이 됩니다. 오 년 넘게 살아남은 책을 한 권 섞으면 결이 달라집니다.'});
+  if(hb.finish <= 1) out.push({k:'watch', t:'끝까지 읽는 책이 드뭅니다', d:'다만 완독이 미덕은 아닙니다. 문제는 중간에 덮는 게 아니라, 덮은 이유를 모르는 것입니다. 왜 멈췄는지 한 줄만 적어 두십시오.'});
+  if(hb.note <= 1) out.push({k:'watch', t:'읽고 나서 남기지 않으십니다', d:'기록 없는 독서는 반년이면 줄거리만 남습니다. 문장 하나, 딱 한 줄만 옮겨 적어도 그 책은 내 것이 됩니다.'});
+  if(hb.reread >= 3) out.push({k:'good', t:'다시 읽으실 줄 압니다', d:'같은 책을 두 번 읽는 사람은 드뭅니다. 두 번째 읽기에서 얻는 것이 첫 번째보다 많다는 걸 이미 아십니다.'});
+  if(hb.author >= 3) out.push({k:'good', t:'한 작가를 파고드십니다', d:'전작주의는 깊이를 만듭니다. 다만 그 깊이가 편식의 다른 이름이 되지 않도록, 좋아하는 작가가 읽은 책을 따라가 보십시오.'});
+  if(hb.share >= 3) out.push({k:'good', t:'읽은 것을 나누십니다', d:'말로 옮기는 순간 이해가 정리됩니다. 혼자 읽는 사람보다 훨씬 멀리 갑니다.'});
+  if(hb.note >= 3) out.push({k:'good', t:'기록하며 읽으십니다', d:'가장 힘이 센 습관입니다. 이 습관이 있는 한, 얇은 영역은 시간문제일 뿐입니다.'});
+  return out.slice(0,4);
+}
+
+/* ── 육각형 레이더 ── */
+function radar(axScore){
+  const cx=160, cy=155, R=100, n=6;
+  const pt=(i,r)=>{
+    const ang = -Math.PI/2 + i*2*Math.PI/n;
+    return [cx+Math.cos(ang)*r, cy+Math.sin(ang)*r];
+  };
+  let g='';
+  [0.25,0.5,0.75,1].forEach(f=>{
+    const p=[...Array(n)].map((_,i)=>pt(i,R*f).map(v=>v.toFixed(1)).join(',')).join(' ');
+    g+=`<polygon points="${p}" fill="none" stroke="#E0D5C4" stroke-width="1"/>`;
+  });
+  for(let i=0;i<n;i++){
+    const [x,y]=pt(i,R);
+    g+=`<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#E0D5C4" stroke-width="1"/>`;
+  }
+  const dp=AXES.map((a,i)=>pt(i, R*Math.max(axScore[a.key],3)/100).map(v=>v.toFixed(1)).join(',')).join(' ');
+  g+=`<polygon points="${dp}" fill="rgba(166,81,47,.18)" stroke="#A6512F" stroke-width="2" stroke-linejoin="round"/>`;
+  AXES.forEach((a,i)=>{
+    const [x,y]=pt(i, R*Math.max(axScore[a.key],3)/100);
+    g+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="#A6512F"/>`;
+  });
+  AXES.forEach((a,i)=>{
+    const [x,y]=pt(i, R+30);
+    let anchor='middle';
+    if(x>cx+8) anchor='middle'; if(x<cx-8) anchor='middle';
+    g+=`<text x="${x.toFixed(1)}" y="${(y+4).toFixed(1)}" text-anchor="${anchor}" font-size="13" font-weight="700" fill="#2B2622">${a.name}</text>`;
+    g+=`<text x="${x.toFixed(1)}" y="${(y+20).toFixed(1)}" text-anchor="${anchor}" font-size="12" fill="#A6512F">${axScore[a.key]}</text>`;
+  });
+  return `<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
+}
+
+/* ── 결과 그리기 ── */
+function draw(axScore, hb, bias, mean, thick, thin, thinnest){
+  const v = verdictOf(bias, mean);
+  const lowFirst = mean < 22;
+
+  let h = '';
+  h += `<div class="score-card">
+    <div class="score-label">편 식 지 수</div>
+    <div class="score-num">${bias}<small>/100</small></div>
+    <div class="verdict">${v.h}</div>
+    <div class="verdict-sub">${v.s}</div>
+  </div>`;
+
+  h += `<h2>내 독서의 지도 <em>SIX FIELDS</em></h2>`;
+  h += `<div class="radar-box">${radar(axScore)}</div>`;
+
+  h += `<div style="margin-top:18px">`;
+  AXES.slice().sort((a,b)=>axScore[b.key]-axScore[a.key]).forEach(a=>{
+    h += `<div class="axis-row">
+      <span class="axis-name">${a.name}</span>
+      <span class="axis-bar"><i style="width:${Math.max(axScore[a.key],2)}%; background:${a.color}"></i></span>
+      <span class="axis-val">${axScore[a.key]}</span>
+    </div>`;
+  });
+  h += `</div>`;
+
+  h += `<div class="callout">
+    두꺼운 자리는 <b>${thick[0].name}</b>과 <b>${thick[1].name}</b>,
+    비어 있는 자리는 <b>${thin[0].name}</b>과 <b>${thin[1].name}</b>입니다.
+    ${lowFirst ? '아직 전체가 얇으니, 숫자보다 아래 첫 책 한 권에 집중하십시오.'
+    : `읽는 사람의 폭은 두꺼운 쪽이 아니라 <b>가장 얇은 축</b>이 정합니다. 지금 이 사람의 폭은 <b>${thinnest.name}</b>이 정하고 있습니다.`}
+  </div>`;
+
+  h += `<h2>그래서, 이 책들 <em>PRESCRIPTION</em></h2>`;
+  [thin[0], thin[1]].forEach((a, idx)=>{  // 가장 얇은 것 먼저
+    const list = BOOKS[a.key].slice(0,3);
+    h += `<div class="rec-group">
+      <div class="rec-head">${idx===0?'가장 비어 있는 자리':'그다음으로 얇은 자리'} — <b>${a.name}</b> <span style="color:#9C9188">(${a.full})</span></div>`;
+    list.forEach((b,i)=>{
+      h += `<div class="book${idx===0&&i===0?' first-pick':''}">
+        ${idx===0&&i===0?'<span class="tag">여기서부터</span><br>':''}
+        <div class="t">${b.t}</div>
+        <div class="a">${b.a}</div>
+        <div class="w">${b.w}</div>
+      </div>`;
+    });
+    h += `</div>`;
+  });
+
+  const hl = habitLines(hb);
+  if(hl.length){
+    h += `<h2>읽는 방식에 대하여 <em>HOW YOU READ</em></h2>`;
+    hl.forEach(x=>{
+      h += `<div class="habit ${x.k}"><b>${x.k==='good'?'◎ ':'△ '}${x.t}</b>${x.d}</div>`;
+    });
+  }
+
+  h += `<div class="actions">
+    <button class="btn ghost" onclick="location.reload()">다시 진단하기</button>
+    <button class="btn ghost" onclick="window.print()">결과 저장 · 인쇄</button>
+  </div>`;
+
+  h += `<div class="footer">
+    <div class="rule"></div>
+    추천 도서는 <b>이서윤</b>이 직접 읽고 기록한 책들에서 골랐습니다.<br>
+    남의 목록이 아니라, 읽은 사람의 목록입니다.
+    <div class="noprint" style="margin-top:16px; font-size:12.5px;">
+      <a href="https://outis-books.github.io/" style="color:#A6512F; text-decoration:none; border-bottom:1px solid #E0D5C4;">이서윤의 문장연구소 · 우티스의 북살롱 →</a>
+    </div>
+  </div>`;
+
+  const r = document.getElementById('result');
+  r.innerHTML = h;
+  document.getElementById('quiz').style.display='none';
+  r.style.display='block';
+  window.scrollTo({top:0, behavior:'instant'});
+}
+</script>
+</body>
+</html>
