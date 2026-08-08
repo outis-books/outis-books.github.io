@@ -51,6 +51,17 @@ h1 { font-family: 'Noto Serif KR', serif; font-size: 30px; font-weight: 400; let
 .diag { --ma: #A6512F; --mt: #F7E4D7; }
 .rx { --ma: #6B4270; --mt: #EDDFEF; }
 
+.strip {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  text-decoration: none; color: inherit;
+  border: 1px solid #E5DAC6; border-radius: 12px;
+  padding: 14px 20px; margin-top: -4px; background: transparent;
+  transition: background .15s, border-color .15s;
+}
+.strip:hover { background: #F6EFE2; border-color: #8A5A16; }
+.s-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #A08A6A; }
+.s-name { font-family: 'Noto Serif KR', serif; font-size: 15.5px; color: #8A5A16; }
+
 .divider { display: flex; align-items: center; gap: 14px; margin: 40px 0 26px; }
 .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: #EDE4D6; }
 .divider span { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 300; color: #A08A6A; white-space: nowrap; }
@@ -77,6 +88,10 @@ footer .sig { font-family: 'Noto Serif KR', serif; font-size: 16px; color: #A651
   .rx { --ma: #C79BD0; --mt: #221429; }
   .divider::before, .divider::after { background: #33291D; }
   .divider span { color: #8A7658; }
+  .strip { border-color: #33291D; }
+  .strip:hover { background: #2B1F0C; border-color: #D9A85C; }
+  .s-label { color: #8A7658; }
+  .s-name { color: #D9A85C; }
   .card { border-color: rgba(255,255,255,.07); }
   footer .sig { color: #DE9366; }
 }
@@ -98,6 +113,11 @@ footer .sig { font-family: 'Noto Serif KR', serif; font-size: 16px; color: #A651
     <span class="name">이서윤의 문장연구소</span>
     <span class="desc">책과 삶을 나란히 놓고 씁니다. 2026년 4월부터 이어 온 연재 전편을 한자리에서 보실 수 있습니다.</span>
     <span class="go">칼럼 읽으러 가기 →</span>
+  </a>
+
+  <a class="strip" href="https://www.lecturernews.com/news/articleList.html?sc_area=I&amp;sc_word=lsy0769">
+    <span class="s-label">신문 지면에서 바로</span>
+    <span class="s-name">한국강사신문 · 이서윤 기자 페이지 →</span>
   </a>
 
   <a class="card salon" href="https://outis-books.github.io/bookclub/">
