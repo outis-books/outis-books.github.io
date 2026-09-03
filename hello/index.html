@@ -172,7 +172,18 @@
   /* 책 */
   .books{list-style:none; margin-top:32px; display:grid; gap:8px}
   .books li{background:var(--card); border:1px solid var(--line); border-radius:6px;
-            padding:16px 18px; display:flex; align-items:center; gap:13px; font-size:.98rem}
+            padding:0; overflow:hidden}
+  .books .row{display:flex; align-items:center; gap:13px; font-size:.98rem;
+              padding:16px 18px; color:inherit; text-decoration:none}
+  .books a.row{transition:background .14s ease}
+  .books a.row:hover{background:var(--paper)}
+  .books a.row .ttl{border-bottom:1px solid transparent}
+  .books a.row:hover .ttl{border-bottom-color:var(--brown)}
+  .books .shop{
+    margin-left:auto; font-size:.72rem; letter-spacing:.04em; color:var(--brown);
+    border:1px solid var(--line); border-radius:100px; padding:4px 12px; white-space:nowrap;
+  }
+  .books a.row:hover .shop{background:var(--brown); border-color:var(--brown); color:var(--card)}
   .books .bar{width:4px; align-self:stretch; border-radius:4px; background:var(--brown); flex:0 0 4px}
   .books .tag{margin-left:auto; font-size:.71rem; letter-spacing:.05em; color:var(--sub);
               border:1px solid var(--line); border-radius:100px; padding:3px 11px; white-space:nowrap}
@@ -419,10 +430,27 @@
     <div class="eyebrow rise">BOOKS</div>
     <h2 class="sec rise">쓴 책</h2>
     <ul class="books">
-      <li class="rise"><span class="bar" style="background:var(--terra)"></span>『아무튼 지치지 않도록』</li>
-      <li class="rise"><span class="bar"></span>『삶이 레몬을 준다면 레모네이드를 만들어라』<span class="tag">공저</span></li>
-      <li class="rise"><span class="bar"></span>『그림책을 활용한 감정 코칭』<span class="tag">공저</span></li>
-      <li class="rise"><span class="bar"></span>『생각을 여는 창』<span class="tag">공저</span></li>
+      <li class="rise">
+        <a class="row" href="https://product.kyobobook.co.kr/detail/S000213673910" target="_blank" rel="noopener">
+          <span class="bar" style="background:var(--terra)"></span>
+          <span class="ttl">『아무튼 지치지 않도록』</span>
+          <span class="shop">책 보러 가기 →</span>
+        </a>
+      </li>
+      <li class="rise">
+        <a class="row" href="https://product.kyobobook.co.kr/detail/S000216176259" target="_blank" rel="noopener">
+          <span class="bar"></span>
+          <span class="ttl">『삶이 레몬을 준다면 레모네이드를 만들어라』</span>
+          <span class="tag">공저</span>
+          <span class="shop">책 보러 가기 →</span>
+        </a>
+      </li>
+      <li class="rise">
+        <div class="row"><span class="bar"></span>『그림책을 활용한 감정 코칭』<span class="tag">공저</span></div>
+      </li>
+      <li class="rise">
+        <div class="row"><span class="bar"></span>『생각을 여는 창』<span class="tag">공저</span></div>
+      </li>
     </ul>
   </div>
 </section>
