@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이서윤 | 북칼럼니스트 · 이서윤의 문장연구소</title>
+<meta name="description" content="북칼럼니스트 이서윤입니다. 삶의 의미와 가치를 다시 묻는 자리에서, 자기 존재를 쓰는 글쓰기를 함께 합니다.">
+<meta property="og:title" content="이서윤 | 북칼럼니스트 · 이서윤의 문장연구소">
+<meta property="og:description" content="읽고, 쓰고, 건너갑니다.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://outis-books.github.io/hello/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --paper:#faf7f2; --card:#fffdfa; --ink:#211e1a; --sub:#6f6961; --line:#e8e1d6;
+    --brown:#8a6f47; --green:#2C5A3B; --gold:#b08a4a; --wine:#6B4270; --terra:#A6512F;
+    --band:#23301f; --bandink:#f3eee3;
+    --shadow:0 12px 36px rgba(33,30,26,.09);
+    --sans:Pretendard,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+    --serif:"Noto Serif KR","나눔명조",Batang,serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#14120f; --card:#1d1a15; --ink:#ece7de; --sub:#9a9287; --line:#2f2a22;
+      --brown:#c9a86a; --green:#7CC094; --gold:#d8b877; --wine:#BE90C5; --terra:#DE9366;
+      --band:#0f1710; --bandink:#e8e2d5; --shadow:0 12px 36px rgba(0,0,0,.42);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#14120f; --card:#1d1a15; --ink:#ece7de; --sub:#9a9287; --line:#2f2a22;
+    --brown:#c9a86a; --green:#7CC094; --gold:#d8b877; --wine:#BE90C5; --terra:#DE9366;
+    --band:#0f1710; --bandink:#e8e2d5; --shadow:0 12px 36px rgba(0,0,0,.42);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--sans); line-height:1.85; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px}
+  .eyebrow{font-size:.67rem; letter-spacing:.3em; font-weight:700; color:var(--brown); margin-bottom:18px}
+  h2.sec{
+    font-family:var(--serif); font-weight:700; font-size:clamp(1.5rem,4.4vw,2.05rem);
+    letter-spacing:-.035em; line-height:1.5; margin-bottom:16px;
+  }
+  .lead{color:var(--sub); font-size:.98rem; line-height:2; max-width:37em}
+  section{padding:76px 0; border-top:1px solid var(--line)}
+
+  /* 상단 바 */
+  .topbar{
+    position:sticky; top:0; z-index:40; background:rgba(250,247,242,.86);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .topbar{background:rgba(20,18,15,.86)}
+  }
+  :root[data-theme="dark"] .topbar{background:rgba(20,18,15,.86)}
+  .topbar .wrap{display:flex; align-items:center; gap:14px; height:58px}
+  .brand{font-family:var(--serif); font-weight:700; letter-spacing:-.02em; font-size:1.05rem}
+  .brand span{color:var(--brown); font-family:var(--sans); font-size:.66rem; letter-spacing:.24em; margin-left:10px; font-weight:700}
+  .navlinks{margin-left:auto; display:flex; gap:20px}
+  .navlinks a{color:var(--sub); text-decoration:none; font-size:.84rem; border-bottom:1px solid transparent; padding-bottom:2px}
+  .navlinks a:hover{color:var(--ink); border-bottom-color:var(--brown)}
+  @media (max-width:760px){ .navlinks{display:none} }
+
+  /* 히어로 */
+  .hero{position:relative; overflow:hidden; border-top:0}
+  .hero::before{
+    content:""; position:absolute; right:-14vw; top:-16vh; width:64vw; height:64vw;
+    max-width:640px; max-height:640px; border-radius:50%; pointer-events:none;
+    background:radial-gradient(circle at 34% 34%, rgba(138,111,71,.14), rgba(138,111,71,0) 66%);
+  }
+  .hero::after{
+    content:""; position:absolute; inset:auto 0 0 0; height:5px;
+    background:linear-gradient(90deg,var(--terra) 0 25%,var(--brown) 25% 50%,var(--wine) 50% 75%,var(--green) 75% 100%);
+  }
+  .hero .wrap{padding-top:92px; padding-bottom:84px; position:relative}
+  .hello{
+    font-family:var(--serif); font-size:.9rem; letter-spacing:.04em; color:var(--brown);
+    margin-bottom:20px;
+  }
+  .hero h1{
+    font-family:var(--serif); font-weight:700;
+    font-size:clamp(2.4rem,8.4vw,4rem); line-height:1.26; letter-spacing:-.05em;
+  }
+  .hero h1 em{font-style:normal; color:var(--brown)}
+  .hero .sub{margin-top:28px; font-size:1.03rem; color:var(--sub); line-height:2.05; max-width:30em}
+  .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:36px}
+  .btn{
+    font-family:var(--sans); font-size:.9rem; font-weight:600; letter-spacing:-.01em;
+    padding:14px 25px; border-radius:100px; cursor:pointer; text-decoration:none;
+    border:1px solid var(--line); background:var(--card); color:var(--ink);
+    transition:transform .14s ease, box-shadow .14s ease;
+    display:inline-flex; align-items:center; gap:7px;
+  }
+  .btn:hover{transform:translateY(-2px); box-shadow:var(--shadow)}
+  .btn.fill{background:var(--green); border-color:var(--green); color:#fffdfa}
+  .btn.fill:hover{filter:brightness(1.09)}
+  .quick{display:flex; flex-wrap:wrap; gap:8px; margin-top:40px}
+  .quick a{
+    font-size:.79rem; color:var(--sub); text-decoration:none; background:var(--card);
+    border:1px solid var(--line); border-radius:100px; padding:7px 16px;
+  }
+  .quick a:hover{color:var(--ink); border-color:var(--brown)}
+
+  /* 소개 */
+  .profile{display:grid; grid-template-columns:296px 1fr; gap:48px; align-items:start; margin-top:40px}
+  @media (max-width:780px){ .profile{grid-template-columns:1fr; gap:32px} }
+  .photo{
+    position:relative; aspect-ratio:1/1; border-radius:6px; overflow:hidden;
+    background:linear-gradient(160deg,var(--card),var(--paper));
+    border:1px solid var(--line); box-shadow:var(--shadow);
+  }
+  .photo img{width:100%; height:100%; object-fit:cover; display:block}
+  .photo .mono{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; text-align:center}
+  .photo .mono small{font-size:.66rem; letter-spacing:.26em; color:var(--brown); font-weight:700}
+  .photo .mono b{font-family:var(--serif); font-size:2.5rem; letter-spacing:.14em; font-weight:700}
+  .photo .mono i{font-style:normal; font-size:.75rem; color:var(--sub)}
+  .photo::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:4px;
+    background:linear-gradient(90deg,var(--terra),var(--brown),var(--wine),var(--green));
+  }
+  .credit{margin-top:15px; font-size:.79rem; color:var(--sub); text-align:center}
+  .profile .body{font-size:.98rem; color:var(--sub); line-height:2.1}
+  .profile .body p + p{margin-top:15px}
+  .profile .body b{color:var(--ink); font-weight:600}
+  .sign{margin-top:28px; padding-top:20px; border-top:1px solid var(--line);
+        display:flex; flex-wrap:wrap; align-items:baseline; gap:12px}
+  .sign .nm{font-family:var(--serif); font-size:1.35rem; font-weight:700; letter-spacing:.05em}
+  .sign .ro{font-size:.83rem; color:var(--sub)}
+
+  /* 네 칸 */
+  .tiles{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:48px}
+  @media (max-width:880px){ .tiles{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:470px){ .tiles{grid-template-columns:1fr} }
+  .tile{background:var(--card); border:1px solid var(--line); border-radius:6px;
+        padding:24px 20px; border-top:3px solid var(--tc,var(--brown))}
+  .tile .k{font-size:.62rem; letter-spacing:.24em; font-weight:700; color:var(--tc,var(--brown))}
+  .tile .h{font-family:var(--serif); font-size:1.03rem; font-weight:600; letter-spacing:-.02em; margin:11px 0 9px; line-height:1.55}
+  .tile .d{font-size:.84rem; color:var(--sub); line-height:1.9}
+
+  /* 번호 카드 */
+  .cards{display:grid; gap:12px; margin-top:36px}
+  .cards.two{grid-template-columns:repeat(2,1fr)}
+  .cards.three{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:780px){ .cards.two,.cards.three{grid-template-columns:1fr} }
+  .c{background:var(--card); border:1px solid var(--line); border-radius:6px;
+     padding:28px 26px; transition:transform .15s ease, box-shadow .15s ease}
+  .c:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
+  .c .no{font-family:var(--serif); font-size:.82rem; font-weight:700; letter-spacing:.12em; color:var(--cc,var(--brown))}
+  .c h3{font-family:var(--serif); font-size:1.2rem; font-weight:700; letter-spacing:-.03em; margin:11px 0 11px; line-height:1.5}
+  .c p{font-size:.91rem; color:var(--sub); line-height:2}
+  .c .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:17px}
+  .c .tags span{font-size:.72rem; color:var(--cc,var(--brown)); border:1px solid var(--line); border-radius:100px; padding:4px 12px}
+  .c .go{display:inline-block; margin-top:17px; font-size:.86rem; text-decoration:none;
+         color:var(--cc,var(--brown)); border-bottom:1px solid currentColor; padding-bottom:1px}
+
+  /* 연표 */
+  .road{list-style:none; margin-top:36px; border-left:2px solid var(--line); padding-left:28px}
+  .road li{position:relative; padding:13px 0; display:flex; flex-wrap:wrap; gap:4px 18px; align-items:baseline}
+  .road li::before{content:""; position:absolute; left:-35px; top:22px; width:10px; height:10px;
+                   border-radius:50%; background:var(--paper); border:2px solid var(--brown)}
+  .road li.now::before{background:var(--green); border-color:var(--green)}
+  .road .y{flex:0 0 110px; font-size:.79rem; letter-spacing:.06em; color:var(--brown); font-weight:600}
+  .road .t{font-size:.97rem}
+  .road li.now .t{font-family:var(--serif); font-weight:600; letter-spacing:-.02em}
+
+  /* 책 */
+  .books{list-style:none; margin-top:32px; display:grid; gap:8px}
+  .books li{background:var(--card); border:1px solid var(--line); border-radius:6px;
+            padding:16px 18px; display:flex; align-items:center; gap:13px; font-size:.98rem}
+  .books .bar{width:4px; align-self:stretch; border-radius:4px; background:var(--brown); flex:0 0 4px}
+  .books .tag{margin-left:auto; font-size:.71rem; letter-spacing:.05em; color:var(--sub);
+              border:1px solid var(--line); border-radius:100px; padding:3px 11px; white-space:nowrap}
+
+  /* 인용 띠 */
+  .band{background:var(--band); color:var(--bandink); border:0}
+  .band .wrap{padding:84px 24px}
+  .band .mark{font-family:var(--serif); font-size:3.2rem; color:var(--gold); line-height:1; display:block; margin-bottom:6px}
+  .band .q{font-family:var(--serif); font-size:clamp(1.4rem,4.6vw,2rem); line-height:1.7; letter-spacing:-.035em; font-weight:600}
+  .band .body{margin-top:24px; font-size:.98rem; line-height:2.05; opacity:.84; max-width:35em}
+  .band .src{margin-top:24px; font-size:.78rem; letter-spacing:.04em; color:var(--gold)}
+
+  /* 연락 */
+  .contact{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:36px}
+  @media (max-width:660px){ .contact{grid-template-columns:1fr} }
+  .contact a{display:flex; align-items:center; gap:15px; text-decoration:none; color:inherit;
+             background:var(--card); border:1px solid var(--line); border-radius:6px; padding:19px 21px;
+             transition:transform .14s ease, box-shadow .14s ease}
+  .contact a:hover{transform:translateY(-2px); box-shadow:var(--shadow)}
+  .contact .k{flex:0 0 52px; font-size:.67rem; letter-spacing:.18em; font-weight:700; color:var(--brown)}
+  .contact .v{font-size:.92rem; word-break:break-all}
+
+  footer{border-top:1px solid var(--line); padding:50px 0 66px; text-align:center; color:var(--sub); font-size:.84rem; line-height:2.1}
+  footer .bar{height:4px; max-width:170px; margin:0 auto 26px;
+              background:linear-gradient(90deg,var(--terra),var(--brown),var(--wine),var(--green))}
+  footer .fn{font-family:var(--serif); font-size:1.06rem; color:var(--ink); letter-spacing:.05em}
+
+  .toast{position:fixed; left:50%; bottom:26px; transform:translate(-50%,14px); z-index:60;
+         background:var(--ink); color:var(--paper); font-size:.86rem; padding:12px 22px;
+         border-radius:100px; opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease}
+  .toast.on{opacity:1; transform:translate(-50%,0)}
+
+  /* 이름 */
+  .namebox{
+    position:relative; overflow:hidden; margin-top:36px; text-align:center;
+    background:var(--card); border:1px solid var(--line); border-radius:6px;
+    padding:46px 28px;
+  }
+  .namebox .greek{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-weight:700; font-size:clamp(4rem,17vw,8.5rem);
+    letter-spacing:.1em; color:var(--brown); opacity:.11; pointer-events:none; user-select:none;
+  }
+  .namebox .rom{position:relative; font-size:.72rem; letter-spacing:.34em; font-weight:700; color:var(--brown)}
+  .namebox .kor{position:relative; font-family:var(--serif); font-size:clamp(2rem,7vw,2.7rem);
+                font-weight:700; letter-spacing:.14em; margin-top:14px; line-height:1.3}
+  .namebox .mean{position:relative; margin-top:16px; font-size:.96rem; color:var(--sub); line-height:2}
+  .namebox .mean b{color:var(--ink); font-weight:600}
+  .pull{
+    margin-top:34px; padding:26px 28px; border-left:5px solid var(--green);
+    background:var(--card); border-radius:0 6px 6px 0;
+    font-family:var(--serif); font-size:1.06rem; line-height:1.95; letter-spacing:-.02em;
+  }
+  .pull .from{
+    display:block; margin-top:14px; font-family:var(--sans); font-size:.77rem;
+    letter-spacing:.04em; color:var(--sub);
+  }
+
+  .rise{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
+  .rise.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){ .rise{opacity:1; transform:none; transition:none} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">이서윤<span>OUTIS</span></div>
+    <nav class="navlinks">
+      <a href="#profile">소개</a>
+      <a href="#name">이름</a>
+      <a href="#work">하는 일</a>
+      <a href="#road">지나온 자리</a>
+      <a href="#books">책</a>
+      <a href="#contact">연락</a>
+    </nav>
+  </div>
+</div>
+
+<!-- 히어로 -->
+<section class="hero">
+  <div class="wrap">
+    <p class="hello">안녕하세요, 이서윤입니다.</p>
+    <h1>읽고, 쓰고,<br><em>건너갑니다.</em></h1>
+    <p class="sub">
+      삶의 의미와 가치를 다시 묻는 자리에서,<br>
+      자기 존재를 쓰는 글쓰기를 함께 합니다.
+    </p>
+    <div class="cta">
+      <a class="btn fill" href="https://outis-books.github.io/column/">칼럼 읽으러 가기 →</a>
+      <button class="btn" id="save">주소록에 저장</button>
+      <button class="btn" id="copy">링크 복사</button>
+    </div>
+    <div class="quick">
+      <a href="#profile">소개</a>
+      <a href="#name">이름</a>
+      <a href="#who">이런 분과</a>
+      <a href="#work">하는 일</a>
+      <a href="#road">지나온 자리</a>
+      <a href="#books">쓴 책</a>
+      <a href="#try">혼자 해보실 것</a>
+      <a href="#contact">연락</a>
+    </div>
+  </div>
+</section>
+
+<!-- 소개 -->
+<section id="profile">
+  <div class="wrap">
+    <div class="eyebrow rise">PROFILE</div>
+    <h2 class="sec rise">36년의 일터를 건너와<br>읽고 쓰는 자리에 섰습니다.</h2>
+
+    <div class="profile">
+      <div class="rise">
+        <div class="photo">
+          <img src="profile.jpg" alt="이서윤" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="mono" style="display:none">
+            <small>OUTIS</small>
+            <b>이서윤</b>
+            <i>사진이 들어올 자리</i>
+          </div>
+        </div>
+        <div class="credit">이서윤 · 북칼럼니스트</div>
+      </div>
+
+      <div class="rise">
+        <div class="body">
+          <p>1990년 5월 20일 부산에서 공직 생활을 시작했습니다. 2003년 동료의 권유로 시작한 마라톤을 13년 동안 했습니다. <b>2016년 달리기를 멈춘 자리에 독서와 글쓰기가 자연스럽게 들어섰습니다.</b></p>
+          <p>36년째 다닌 일터에서 정년퇴직을 3년 6개월 앞두고 <b>2026년 6월 30일 명예퇴직</b>을 했습니다. 오롯이 글로 삶을 채우고 싶어서였습니다. 익숙지 않지만, 한 번도 참가한 적이 없는 낯선 지역에서 달리는 기분으로 하루를 보내고 있습니다.</p>
+          <p>책에서 멋진 문장을 주워 담는 <b>문장 수집가</b>, 읽고 쓰는 <b>집필 노동자</b>로 살고자 합니다. 이제는 글쓰기로 삶을 이어가며, 독자에게 든든한 <b>페이스메이커이자 길잡이</b>가 되어 주고자 합니다.</p>
+        </div>
+        <div class="sign">
+          <span class="nm">이서윤</span>
+          <span class="ro">북칼럼니스트 · 『아무튼 지치지 않도록』 저자 · 한국강사신문 연재</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <div class="tile rise" style="--tc:var(--terra)">
+        <div class="k">READING</div>
+        <div class="h">책 한 권과<br>삶 한 자락</div>
+        <div class="d">둘을 나란히 포개어 놓는 자리에서 글이 시작됩니다.</div>
+      </div>
+      <div class="tile rise" style="--tc:var(--brown)">
+        <div class="k">WRITING</div>
+        <div class="h">하루 10분,<br>끝까지 가는 힘</div>
+        <div class="d">마라톤에서 다져진 지구력이 이제 글이라는 트랙 위를 달립니다.</div>
+      </div>
+      <div class="tile rise" style="--tc:var(--green)">
+        <div class="k">SALON</div>
+        <div class="h">혼자서는<br>못 가는 책</div>
+        <div class="d">두꺼운 책을 여럿이 하루 한 장씩 함께 걷습니다.</div>
+      </div>
+      <div class="tile rise" style="--tc:var(--wine)">
+        <div class="k">ITHACA</div>
+        <div class="h">돌아갈 곳을<br>스스로 묻기</div>
+        <div class="d">퇴직 준비는 ‘내가 어디로 돌아갈 것인가’를 묻는 일입니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 이름 -->
+<section id="name">
+  <div class="wrap">
+    <div class="eyebrow rise">NAME</div>
+    <h2 class="sec rise">우티스 — 아무것도 아닌 자</h2>
+    <p class="lead rise">북살롱에서 쓰는 이름입니다. 제가 지은 말이 아니라, 『오뒷세이아』에서 빌려온 이름입니다.</p>
+
+    <div class="namebox rise">
+      <span class="greek" aria-hidden="true">ΟΥΤΙΣ</span>
+      <div class="rom">OUTIS</div>
+      <div class="kor">우티스</div>
+      <p class="mean">‘아무도 아닌 자<b>(Nobody)</b>’<br>오디세우스가 위기를 벗어나기 위해 썼던 <b>지혜의 이름</b>입니다.</p>
+    </div>
+
+    <div class="cards two">
+      <div class="c rise" style="--cc:var(--wine)">
+        <div class="no">01</div>
+        <h3>동굴에서</h3>
+        <p>오디세우스가 고향인 이타카로 가는 여정에서 괴물을 만납니다. 괴물이 묻습니다. “너는 누구냐?” 이때 오디세우스는 ‘우티스’라고 외칩니다.</p>
+        <p style="margin-top:12px">우티스(OUTIS). 의미는 ‘아무것도 아니다’입니다. 그러자 괴물은 신경 쓰지 않고 잠들었습니다. 그때 오디세우스와 부하 군사들은 괴물의 눈을 찌르고 동굴 밖으로 나올 수 있었습니다.</p>
+        <div class="tags"><span>오뒷세이아</span><span>폴뤼페모스</span><span>지혜</span></div>
+      </div>
+      <div class="c rise" style="--cc:var(--green)">
+        <div class="no">02</div>
+        <h3>지금, 여기서</h3>
+        <p>저 역시 36년의 전쟁 같은 직장 생활을 청산하고 그동안의 직장에서 벗어났습니다. 이제는 명예도, 직함도 사라진 저는 ‘아무것도 아닌 사람’이 되었습니다. 그래서 저의 이름을 우티스로 지었습니다.</p>
+        <p style="margin-top:12px">책을 읽고 아무것도 아닌 자신을 겸허하게 받아들이는 자세가 마음에 끌렸습니다.</p>
+        <div class="tags"><span>명예퇴직</span><span>이름을 내려놓기</span></div>
+      </div>
+    </div>
+
+    <p class="pull rise">
+      북살롱 안에서는 직급도, 나이도, 배경도 중요하지 않습니다.<br>
+      우리는 철저히 이름 없는 한 명의 인간으로서 책과 마주합니다.
+      <span class="from">— 북살롱의 이름을 짓던 날의 기록에서</span>
+    </p>
+  </div>
+</section>
+
+<!-- 이런 분과 -->
+<section id="who">
+  <div class="wrap">
+    <div class="eyebrow rise">FOR YOU</div>
+    <h2 class="sec rise">이런 분과 만나고 싶습니다.</h2>
+    <p class="lead rise">직함이 사라진 자리에서 다음 이름을 찾는 시간. 그 길을 먼저 건너온 사람으로 곁에 서겠습니다.</p>
+    <div class="cards three">
+      <div class="c rise" style="--cc:var(--terra)">
+        <div class="no">01</div>
+        <h3>명함이 사라진 자리에<br>서 계신 분</h3>
+        <p>퇴직 앞뒤로 회사 이름이 지워진 자리에서, 다음에 무엇으로 불릴지 찾고 계신 분.</p>
+      </div>
+      <div class="c rise" style="--cc:var(--brown)">
+        <div class="no">02</div>
+        <h3>삶의 의미를<br>다시 묻는 분</h3>
+        <p>무엇을 더 가질지보다 어떻게 살지를 묻게 된, 오십과 육십의 시간을 지나는 분.</p>
+      </div>
+      <div class="c rise" style="--cc:var(--wine)">
+        <div class="no">03</div>
+        <h3>자기 이야기를<br>남기고 싶은 분</h3>
+        <p>마음속에만 두었던 이야기를 끝내 한 편의 글로 남기고 싶은 분.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 하는 일 -->
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow rise">WORK</div>
+    <h2 class="sec rise">제가 하는 일 둘</h2>
+    <div class="cards two">
+      <div class="c rise" style="--cc:var(--terra)">
+        <div class="no">01</div>
+        <h3>씁니다</h3>
+        <p>한국강사신문에 「이서윤의 문장연구소」를 연재합니다. 책 한 권과 삶 한 자락을 포개어 씁니다.</p>
+        <div class="tags"><span>북칼럼</span><span>한국강사신문</span><span>연재</span></div>
+        <a class="go" href="https://outis-books.github.io/column/">칼럼 전편 보기 →</a>
+      </div>
+      <div class="c rise" style="--cc:var(--green)">
+        <div class="no">02</div>
+        <h3>함께 읽습니다</h3>
+        <p>우티스의 북살롱 — 혼자서는 끝까지 못 가는 두꺼운 책을 여럿이 하루 한 장씩 걷습니다.</p>
+        <div class="tags"><span>벽돌책 완독</span><span>독서모임</span><span>기수별 자료</span></div>
+        <a class="go" href="https://outis-books.github.io/bookclub/">서재 둘러보기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 지나온 자리 -->
+<section id="road">
+  <div class="wrap">
+    <div class="eyebrow rise">JOURNEY</div>
+    <h2 class="sec rise">지나온 자리</h2>
+    <ul class="road">
+      <li class="rise"><span class="y">1990. 5. 20.</span><span class="t">부산에서 공직 생활을 시작</span></li>
+      <li class="rise"><span class="y">2003–2016</span><span class="t">동료의 권유로 시작한 마라톤 13년</span></li>
+      <li class="rise"><span class="y">2016</span><span class="t">달리기를 멈춘 자리에 독서와 글쓰기가 들어섬</span></li>
+      <li class="rise"><span class="y">2026. 6. 30.</span><span class="t">36년 일터에서 명예퇴직 — 정년 3년 6개월을 앞두고</span></li>
+      <li class="rise now"><span class="y">지금</span><span class="t">오롯이 읽고 쓰는 일상을 누리는 중</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 책 -->
+<section id="books">
+  <div class="wrap">
+    <div class="eyebrow rise">BOOKS</div>
+    <h2 class="sec rise">쓴 책</h2>
+    <ul class="books">
+      <li class="rise"><span class="bar" style="background:var(--terra)"></span>『아무튼 지치지 않도록』</li>
+      <li class="rise"><span class="bar"></span>『삶이 레몬을 준다면 레모네이드를 만들어라』<span class="tag">공저</span></li>
+      <li class="rise"><span class="bar"></span>『그림책을 활용한 감정 코칭』<span class="tag">공저</span></li>
+      <li class="rise"><span class="bar"></span>『생각을 여는 창』<span class="tag">공저</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 혼자 해보실 것 -->
+<section id="try">
+  <div class="wrap">
+    <div class="eyebrow rise">TRY</div>
+    <h2 class="sec rise">혼자 해보실 수 있는 것 둘</h2>
+    <div class="cards two">
+      <div class="c rise" style="--cc:var(--terra)">
+        <div class="no">01</div>
+        <h3>나의 독서 편식 진단</h3>
+        <p>무엇을 읽었는지보다 무엇을 한 번도 읽지 않았는지가 그 사람을 말해 줍니다. 여섯 영역의 지도를 그리고, 비어 있는 자리에 읽을 책을 골라 드립니다.</p>
+        <div class="tags"><span>20문항</span><span>3분</span></div>
+        <a class="go" href="https://outis-books.github.io/reading/">진단해 보기 →</a>
+      </div>
+      <div class="c rise" style="--cc:var(--wine)">
+        <div class="no">02</div>
+        <h3>독서 처방전</h3>
+        <p>슬플 때, 외로울 때, 다시 시작하고 싶을 때. 지금 마음 하나를 고르시면 그 자리에 놓을 책을 드립니다. 제가 읽고 그때 남긴 말과 함께.</p>
+        <div class="tags"><span>아홉 마음</span><span>마음마다 열 권</span></div>
+        <a class="go" href="https://outis-books.github.io/prescription/">처방받아 보기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 인용 띠 -->
+<section class="band">
+  <div class="wrap">
+    <span class="mark">“</span>
+    <p class="q">나의 이타카는 어디인가?</p>
+    <p class="body">전쟁이 끝나도 집으로 가는 길은 뚜렷이 남아 있습니다. 삶의 가장 의미 있는 항해는 어쩌면 지금부터 시작될지 모릅니다.</p>
+    <p class="src">— 「명함이 사라진 자리, 진짜 내 모습으로 살아갈 시간」 · 이서윤의 문장연구소</p>
+  </div>
+</section>
+
+<!-- 연락 -->
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow rise">CONTACT</div>
+    <h2 class="sec rise">이렇게 닿으실 수 있습니다.</h2>
+    <p class="lead rise">강연·원고·독서모임 이야기는 메일이 가장 빠릅니다. 아래 「주소록에 저장」을 누르시면 휴대폰 연락처에 그대로 들어갑니다.</p>
+    <div class="contact">
+      <a class="rise" href="mailto:leeseoyun0813@naver.com"><span class="k">메일</span><span class="v">leeseoyun0813@naver.com</span></a>
+      <a class="rise" href="https://blog.naver.com/leeseoyun0813" target="_blank" rel="noopener"><span class="k">블로그</span><span class="v">blog.naver.com/leeseoyun0813</span></a>
+      <a class="rise" href="https://www.instagram.com/daily_writing_365/" target="_blank" rel="noopener"><span class="k">인스타</span><span class="v">@daily_writing_365</span></a>
+      <a class="rise" href="https://outis-books.github.io/news" target="_blank" rel="noopener"><span class="k">신문</span><span class="v">한국강사신문 · 이서윤 칼럼니스트</span></a>
+      <a class="rise" href="https://outis-books.github.io/"><span class="k">대문</span><span class="v">outis-books.github.io</span></a>
+    </div>
+    <div class="cta">
+      <button class="btn fill" id="save2">주소록에 저장</button>
+      <button class="btn" id="copy2">이 페이지 링크 복사</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="bar"></div>
+  <div class="fn">이서윤 · 북칼럼니스트</div>
+  읽고, 쓰고, 건너갑니다.
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  function toast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('on');
+    clearTimeout(t._t); t._t=setTimeout(function(){t.classList.remove('on');},1900);
+  }
+
+  /* 휴대폰 주소록에 그대로 들어가는 vCard */
+  function saveCard(){
+    var v=['BEGIN:VCARD','VERSION:3.0','N:이서윤;;;;','FN:이서윤',
+      'TITLE:북칼럼니스트 · 이서윤의 문장연구소',
+      'EMAIL;TYPE=INTERNET:leeseoyun0813@naver.com',
+      'URL:https://outis-books.github.io/hello/',
+      'NOTE:읽고, 쓰고, 건너갑니다. — 삶의 의미와 가치를 다시 묻는 자리에서, 자기 존재를 쓰는 글쓰기를 함께 합니다.',
+      'END:VCARD'].join('\r\n');
+    var url=URL.createObjectURL(new Blob(['﻿'+v],{type:'text/vcard;charset=utf-8'}));
+    var a=document.createElement('a'); a.href=url; a.download='이서윤.vcf';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){URL.revokeObjectURL(url);},1500);
+    toast('연락처 파일을 내려받았습니다');
+  }
+
+  /* 카톡에 붙여 넣을 주소 */
+  function copyLink(){
+    var url='https://outis-books.github.io/hello/';
+    function done(){toast('링크를 복사했습니다');}
+    function fallback(){
+      var ta=document.createElement('textarea');
+      ta.value=url; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{document.execCommand('copy'); done();}catch(e){toast(url);}
+      ta.remove();
+    }
+    if(navigator.share && /Android|iPhone|iPad/i.test(navigator.userAgent)){
+      navigator.share({title:'이서윤 · 북칼럼니스트', url:url}).catch(fallback); return;
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(done,fallback);
+    } else { fallback(); }
+  }
+
+  ['save','save2'].forEach(function(id){var e=document.getElementById(id); if(e)e.addEventListener('click',saveCard);});
+  ['copy','copy2'].forEach(function(id){var e=document.getElementById(id); if(e)e.addEventListener('click',copyLink);});
+
+  /* 스크롤에 맞춰 하나씩 떠오르게 */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.rise').forEach(function(el,i){
+    el.style.transitionDelay=(Math.min(i,6)*45)+'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
