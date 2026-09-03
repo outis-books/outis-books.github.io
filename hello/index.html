@@ -212,8 +212,18 @@
               border:1px solid var(--line); border-radius:100px; padding:3px 11px; white-space:nowrap}
 
   /* 인용 띠 */
-  .band{background:var(--band); color:var(--bandink); border:0}
-  .band .wrap{padding:84px 24px}
+  .band{background:var(--band); color:var(--bandink); border:0; position:relative; overflow:hidden}
+  /* 책장 사진을 어둡게 깔아 이 칸을 깊게 만든다 */
+  .band .shelf{
+    position:absolute; inset:0; z-index:0;
+    background:url("shelf.jpg") center 38% / cover no-repeat;
+    opacity:.34; filter:saturate(.72) contrast(1.04);
+  }
+  .band::after{
+    content:""; position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(20,30,20,.72) 0%, rgba(20,30,20,.9) 62%, rgba(20,30,20,.96) 100%);
+  }
+  .band .wrap{padding:104px 24px; position:relative; z-index:2}
   .band .mark{font-family:var(--serif); font-size:3.2rem; color:var(--gold); line-height:1; display:block; margin-bottom:6px}
   .band .q{font-family:var(--serif); font-size:clamp(1.4rem,4.6vw,2rem); line-height:1.7; letter-spacing:-.035em; font-weight:600}
   .band .body{margin-top:24px; font-size:.98rem; line-height:2.05; opacity:.84; max-width:35em}
@@ -514,6 +524,7 @@
 
 <!-- 인용 띠 -->
 <section class="band">
+  <div class="shelf" aria-hidden="true"></div>
   <div class="wrap">
     <span class="mark">“</span>
     <p class="q">나의 이타카는 어디인가?</p>
