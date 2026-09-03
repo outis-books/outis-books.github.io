@@ -42,13 +42,36 @@
     font-family:var(--sans); line-height:1.85; -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:920px; margin:0 auto; padding:0 24px}
-  .eyebrow{font-size:.67rem; letter-spacing:.3em; font-weight:700; color:var(--brown); margin-bottom:18px}
+  .eyebrow{font-size:.67rem; letter-spacing:.3em; font-weight:700; color:var(--sc,var(--brown)); margin-bottom:18px}
+  .eyebrow::before{
+    content:""; display:block; width:30px; height:3px; border-radius:2px;
+    background:var(--sc,var(--brown)); margin-bottom:15px;
+  }
+
+  /* 칸마다 옅은 바탕색 — 눈으로 구획이 나뉘도록 */
+  .s-wine{--sc:var(--wine); --sb:#F4EEF5}
+  .s-green{--sc:var(--green); --sb:#EAF1EC}
+  .s-terra{--sc:var(--terra); --sb:#FAEEE7}
+  .s-brown{--sc:var(--brown); --sb:#F5EFE5}
+  .s-blue{--sc:#2F5573; --sb:#EBF1F7}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .s-wine{--sb:#1B1521}
+    :root:not([data-theme="light"]) .s-green{--sb:#0F1A13}
+    :root:not([data-theme="light"]) .s-terra{--sb:#1F1712}
+    :root:not([data-theme="light"]) .s-brown{--sb:#1C1710}
+    :root:not([data-theme="light"]) .s-blue{--sc:#84AED4; --sb:#111820}
+  }
+  :root[data-theme="dark"] .s-wine{--sb:#1B1521}
+  :root[data-theme="dark"] .s-green{--sb:#0F1A13}
+  :root[data-theme="dark"] .s-terra{--sb:#1F1712}
+  :root[data-theme="dark"] .s-brown{--sb:#1C1710}
+  :root[data-theme="dark"] .s-blue{--sc:#84AED4; --sb:#111820}
   h2.sec{
     font-family:var(--serif); font-weight:700; font-size:clamp(1.5rem,4.4vw,2.05rem);
     letter-spacing:-.035em; line-height:1.5; margin-bottom:16px;
   }
   .lead{color:var(--sub); font-size:.98rem; line-height:2; max-width:37em}
-  section{padding:76px 0; border-top:1px solid var(--line)}
+  section{padding:76px 0; border-top:1px solid var(--line); background:var(--sb,transparent)}
 
   /* 상단 바 */
   .topbar{
@@ -290,7 +313,7 @@
 </section>
 
 <!-- 소개 -->
-<section id="profile">
+<section id="profile" class="s-brown">
   <div class="wrap">
     <div class="eyebrow rise">PROFILE</div>
     <h2 class="sec rise">36년의 일터를 건너와<br>읽고 쓰는 자리에 섰습니다.</h2>
@@ -347,7 +370,7 @@
 </section>
 
 <!-- 이름 -->
-<section id="name">
+<section id="name" class="s-wine">
   <div class="wrap">
     <div class="eyebrow rise">NAME</div>
     <h2 class="sec rise">우티스 — 아무것도 아닌 자</h2>
@@ -386,7 +409,7 @@
 </section>
 
 <!-- 하는 일 -->
-<section id="work">
+<section id="work" class="s-green">
   <div class="wrap">
     <div class="eyebrow rise">WORK</div>
     <h2 class="sec rise">제가 하는 일 둘</h2>
@@ -425,7 +448,7 @@
 </section>
 
 <!-- 책 -->
-<section id="books">
+<section id="books" class="s-terra">
   <div class="wrap">
     <div class="eyebrow rise">BOOKS</div>
     <h2 class="sec rise">쓴 책</h2>
@@ -466,7 +489,7 @@
 </section>
 
 <!-- 혼자 해보실 것 -->
-<section id="try">
+<section id="try" class="s-blue">
   <div class="wrap">
     <div class="eyebrow rise">TRY</div>
     <h2 class="sec rise">혼자 해보실 수 있는 것 둘</h2>
@@ -500,7 +523,7 @@
 </section>
 
 <!-- 연락 -->
-<section id="contact">
+<section id="contact" class="s-brown">
   <div class="wrap">
     <div class="eyebrow rise">CONTACT</div>
     <h2 class="sec rise">이렇게 닿으실 수 있습니다.</h2>
