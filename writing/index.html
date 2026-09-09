@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>아직 글쓰기가 어려운 당신에게</title>
+<meta name="description" content="글쓰기를 시작하는 여섯 가지 방법 — 필사, 몽롱쓰기, 저널 쓰기, 모닝 페이지, 100일간 글쓰기, 블로그 글쓰기 챌린지. 오늘 바로 할 수 있는 것만 적었습니다.">
+<meta property="og:title" content="아직 글쓰기가 어려운 당신에게">
+<meta property="og:description" content="글쓰기를 시작하는 여섯 가지 방법. 오늘 바로 할 수 있는 것만.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#faf8f5; --card:#fff; --ink:#1c1a17; --sub:#6d675e; --line:#e3ddd3;
+    --accent:#8A4A1F; --tint:#F4E7DA;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#15130f; --card:#1e1b16; --ink:#ece7de; --sub:#9a9287; --line:#2f2a22;
+           --accent:#D69A63; --tint:#241c14; }
+  }
+  :root[data-theme="light"]{ --bg:#faf8f5; --card:#fff; --ink:#1c1a17; --sub:#6d675e;
+                             --line:#e3ddd3; --accent:#8A4A1F; --tint:#F4E7DA }
+  :root[data-theme="dark"]{ --bg:#15130f; --card:#1e1b16; --ink:#ece7de; --sub:#9a9287;
+                            --line:#2f2a22; --accent:#D69A63; --tint:#241c14 }
+
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Noto Serif KR","나눔명조","Batang",serif;
+    line-height:1.9; -webkit-font-smoothing:antialiased;
+    padding:0 20px 72px;
+  }
+  body::before{content:""; display:block; height:6px; margin:0 -20px;
+    background:var(--accent)}
+  .wrap{max-width:660px; margin:0 auto}
+
+  header{padding:56px 0 28px; text-align:center; border-bottom:1px solid var(--line)}
+  .book{font-size:.74rem; letter-spacing:.2em; color:var(--accent); font-weight:600;
+        margin-bottom:16px}
+  h1{font-size:1.72rem; letter-spacing:-.02em; line-height:1.45; margin-bottom:16px}
+  .lead{color:var(--sub); font-size:.97rem; line-height:1.9}
+
+  /* 여섯 방법으로 바로 뛰는 차례 — QR로 들어온 사람도 옆 방법을 보게 된다 */
+  nav{display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:26px 0 6px}
+  nav a{font-size:.82rem; text-decoration:none; color:var(--accent);
+        background:var(--tint); border-radius:100px; padding:6px 14px;
+        transition:filter .13s ease}
+  nav a:hover{filter:brightness(.95)}
+
+  section{padding:38px 0 4px; scroll-margin-top:16px}
+  section + section{border-top:1px solid var(--line)}
+  h2{font-size:1.24rem; letter-spacing:-.01em; color:var(--accent);
+     padding-bottom:10px; border-bottom:2px solid var(--accent); margin-bottom:20px}
+  p + p{margin-top:16px}
+  .steps{margin-top:0; background:var(--tint); border-radius:3px; padding:20px 22px}
+  .steps dt{font-size:.76rem; letter-spacing:.12em; color:var(--accent);
+            font-weight:600; margin-bottom:4px}
+  .steps dt + dd{margin-bottom:14px}
+  .steps dd:last-child{margin-bottom:0}
+
+  /* 「해 보니」 — 전부 지은이가 원고에 쓴 문장을 그대로 덜어 온 것 */
+  .said{margin-top:22px; padding-left:18px; border-left:3px solid var(--line)}
+  .said-h{font-size:.72rem; letter-spacing:.14em; color:var(--sub);
+          font-weight:600; margin-bottom:10px}
+  .said p{font-size:.94rem; color:var(--sub); line-height:1.9}
+  .said p + p{margin-top:12px}
+
+  .closing{margin-top:40px; padding:26px 24px; border:1px solid var(--line);
+           border-radius:3px; background:var(--card)}
+  .closing h2{font-size:1.1rem; border-bottom-width:1px; margin-bottom:16px}
+
+  footer{margin-top:48px; padding-top:26px; border-top:1px solid var(--line);
+         text-align:center; font-size:.85rem; color:var(--sub); line-height:2}
+  footer a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent}
+  footer a:hover{border-bottom-color:var(--accent)}
+
+  @media (max-width:520px){
+    header{padding:40px 0 22px}
+    h1{font-size:1.42rem}
+    section{padding:30px 0 4px}
+    h2{font-size:1.12rem}
+    .steps{padding:18px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="book">글쓰기를 시작하는 여섯 가지 방법</p>
+  <h1>아직 글쓰기가 어려운 당신에게</h1>
+  <p class="lead">글을 쓰고 싶은데 어디서부터 손대야 할지 모르겠다면,<br>
+     여섯 가지 중 하나만 골라 오늘 시작하시면 됩니다.</p>
+</header>
+
+<nav>
+  <a href="#pilsa">필사</a>
+  <a href="#mongnong">몽롱쓰기</a>
+  <a href="#journal">저널 쓰기</a>
+  <a href="#morning">모닝 페이지</a>
+  <a href="#days100">100일간 글쓰기</a>
+  <a href="#blog">블로그 글쓰기 챌린지</a>
+</nav>
+
+<section id="pilsa">
+  <h2>필사</h2>
+  <dl class="steps">
+    <dt>준비물</dt><dd>노트 한 권, 펜, 읽다가 접어 둔 책.</dd>
+    <dt>오늘 할 일</dt><dd>접어 둔 쪽을 펴고 문장 하나를 옮겨 적는다. 다 적고 나서 잠깐 그대로 앉아 있는다.</dd>
+    <dt>막히면</dt><dd>필사 모임에 들어간다. 신문 칼럼 한 편도 좋다.</dd>
+  </dl>
+  <div class="said">
+    <p class="said-h">해 보니</p>
+    <p>필사는 조급함을 내려놓는 연습이 되었다. 남의 문장을 옮기는 동안에는 잘 쓰려는 욕심이 끼어들 자리가 없다. 그 단순한 반복이 손에 인내를 가르쳤다.</p>
+    <p>남의 문장을 적다가 내 문장이 시작되는 순간이 있다.</p>
+  </div>
+</section>
+
+<section id="mongnong">
+  <h2>몽롱쓰기</h2>
+  <dl class="steps">
+    <dt>준비물</dt><dd>노트와 펜, 타이머. 잠들기 전에 미리 꺼내 둔다.</dd>
+    <dt>오늘 할 일</dt><dd>일어나자마자 책상에 앉아 10분을 맞추고, 주제 없이 노트를 채운다.</dd>
+    <dt>막히면</dt><dd>서툰 문장이어도 그냥 둔다. 한 줄이 다음 줄을 불러온다.</dd>
+  </dl>
+  <div class="said">
+    <p class="said-h">해 보니</p>
+    <p>쓰고 싶지 않은 날이 더 많았다. 눈꺼풀은 무겁고, 머릿속은 비어 있었으며, 어떤 날은 손끝조차 움직이기 싫었다.</p>
+    <p>그렇게 적다 보면 어제 쓴 말이 오늘 문장에 다시 나왔다. 잘 쓴 날도 못 쓴 날도 노트에는 같은 두께로 쌓였다.</p>
+  </div>
+</section>
+
+<section id="journal">
+  <h2>저널 쓰기</h2>
+  <dl class="steps">
+    <dt>준비물</dt><dd>글을 올릴 자리 하나, 그리고 마감 시각.</dd>
+    <dt>오늘 할 일</dt><dd>오늘 있었던 일 하나를 천 자로 적고, 자정 전에 올린다.</dd>
+    <dt>막히면</dt><dd>분량부터 낮춘다. 늘리는 것은 나중 일이다.</dd>
+  </dl>
+  <div class="said">
+    <p class="said-h">해 보니</p>
+    <p>마감은 나를 억지로라도 글 앞에 앉힌다. 오늘 아니면 안 되는 그 절박함이 없었다면, 나는 여전히 미루고 있었을 것이다.</p>
+  </div>
+</section>
+
+<section id="morning">
+  <h2>모닝 페이지</h2>
+  <dl class="steps">
+    <dt>준비물</dt><dd>새 노트 한 권과 펜.</dd>
+    <dt>오늘 할 일</dt><dd>눈을 뜨자마자 세 페이지가 찰 때까지 무슨 말이든 쓴다. 아무에게도 보이지 않는다.</dd>
+  </dl>
+  <div class="said">
+    <p class="said-h">해 보니</p>
+    <p>줄리아 캐머런의 『아티스트 웨이』에서 온 방법이다. 누구에게 보여주는 게 아니었기에 편안하게 써 내려갈 수 있었다.</p>
+    <p>불안과 두려움 그리고 진짜 문제가 무엇인지 깨달았다. 내가 무엇을 생각하는지, 나에게 필요한 게 무엇인지 알게 되었다.</p>
+  </div>
+</section>
+
+<section id="days100">
+  <h2>100일간 글쓰기</h2>
+  <dl class="steps">
+    <dt>준비물</dt><dd>글을 올릴 자리 하나.</dd>
+    <dt>오늘 할 일</dt><dd>글감을 하나 정해 한 편을 써서 올린다. 그것을 100일 동안 매일 한다.</dd>
+  </dl>
+  <div class="said">
+    <p class="said-h">해 보니</p>
+    <p>생각하는 시간이 늘었다. 그때는 몰랐지만, 시간이 지나고 나니 눈에 보이지 않던 것들이 보였다.</p>
+    <p>100일을 채우고 남은 것은 글이 아니라 몸에 붙은 시간이었다. 잘 썼는지 못 썼는지보다, 썼는지 쓰지 않았는지가 더 중요했다.</p>
+  </div>
+</section>
+
+<section id="blog">
+  <h2>블로그 글쓰기 챌린지</h2>
+  <dl class="steps">
+    <dt>준비물</dt><dd>블로그 하나, 함께 인증할 사람들.</dd>
+    <dt>오늘 할 일</dt><dd>일정한 기간 동안 하루 한 편을 올리기로 정하고, 요일마다 쓸 것을 미리 짠다.</dd>
+    <dt>막히면</dt><dd>내용과 완성도는 따지지 않는다. 무슨 글이든 한 편이면 된다.</dd>
+  </dl>
+  <div class="said">
+    <p class="said-h">해 보니</p>
+    <p>블로그에 글을 올리기 위해 매일 책을 읽었다. 블로그에 올린다는 생각에 책을 더 집중해서 읽었다. 꾸준한 독서 습관이 잡혔다.</p>
+    <p>권해서 생긴 습관이 아니었다. 올릴 자리가 있어서 생겼다.</p>
+  </div>
+</section>
+
+<div class="closing">
+  <h2>무엇부터 할까</h2>
+  <p>혼자서도 되는 것은 모닝 페이지와 필사다. 아침에는 모닝 페이지, 저녁에는 필사가 어울린다. 몽롱쓰기와 저널 쓰기, 100일간 글쓰기, 블로그 글쓰기 챌린지는 누군가와 함께해야 오래간다. 하나만 고르라면 시간이 나는 쪽을 고르고, 혼자서 오래 못 가는 편이면 챌린지부터 시작한다.</p>
+</div>
+
+<footer>
+  이 글은 <b>이서윤</b>이 직접 해 본 것만 적었습니다.<br>
+  <a href="https://outis-books.github.io/">이서윤의 칼럼과 북살롱</a>
+</footer>
+
+</div>
+</body>
+</html>
