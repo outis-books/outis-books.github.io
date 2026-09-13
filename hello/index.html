@@ -123,6 +123,7 @@
   .btn:hover{transform:translateY(-2px); box-shadow:var(--shadow)}
   .btn.fill{background:var(--green); border-color:var(--green); color:#fffdfa}
   .btn.fill:hover{filter:brightness(1.09)}
+  .btn.fill.blue{background:#2F5573; border-color:#2F5573}
   .quick{display:flex; flex-wrap:wrap; gap:8px; margin-top:40px}
   .quick a{
     font-size:.79rem; color:var(--sub); text-decoration:none; background:var(--card);
@@ -181,6 +182,24 @@
   .c .tags span{font-size:.72rem; color:var(--cc,var(--brown)); border:1px solid var(--line); border-radius:100px; padding:4px 12px}
   .c .go{display:inline-block; margin-top:17px; font-size:.86rem; text-decoration:none;
          color:var(--cc,var(--brown)); border-bottom:1px solid currentColor; padding-bottom:1px}
+
+  /* 신문에 실린 이야기 */
+  .press{
+    display:block; margin-top:36px; text-decoration:none; color:inherit;
+    background:var(--card); border:1px solid var(--line); border-radius:6px;
+    border-left:5px solid var(--sc); padding:32px 30px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .press:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
+  .press .meta{display:flex; flex-wrap:wrap; gap:6px 14px; font-size:.76rem; letter-spacing:.04em; color:var(--sc); font-weight:600}
+  .press .meta span + span{color:var(--sub); font-weight:400}
+  .press h3{font-family:var(--serif); font-size:clamp(1.15rem,3.6vw,1.4rem); font-weight:700; letter-spacing:-.03em; line-height:1.6; margin:14px 0 18px}
+  .press blockquote{
+    margin:0; padding:18px 0 0; border-top:1px solid var(--line);
+    font-family:var(--serif); font-size:1.02rem; line-height:1.95; letter-spacing:-.02em;
+  }
+  .press p{margin-top:12px; font-size:.9rem; color:var(--sub); line-height:2}
+  .press .go{display:inline-block; margin-top:18px; font-size:.86rem; color:var(--sc); border-bottom:1px solid currentColor; padding-bottom:1px}
 
   /* 연표 */
   .road{list-style:none; margin-top:36px; border-left:2px solid var(--line); padding-left:28px}
@@ -290,6 +309,7 @@
       <a href="#profile">소개</a>
       <a href="#name">이름</a>
       <a href="#work">하는 일</a>
+      <a href="#press">인터뷰</a>
       <a href="#road">지나온 자리</a>
       <a href="#books">책</a>
       <a href="#contact">연락</a>
@@ -307,14 +327,16 @@
       자기 존재를 쓰는 글쓰기를 함께 합니다.
     </p>
     <div class="cta">
+      <a class="btn fill blue" href="https://www.lecturernews.com/news/articleView.html?idxno=210215" target="_blank" rel="noopener">인터뷰 기사 읽기 →</a>
       <a class="btn fill" href="https://outis-books.github.io/column/">칼럼 읽으러 가기 →</a>
-      <button class="btn" id="save">주소록에 저장</button>
       <button class="btn" id="copy">링크 복사</button>
+      <button class="btn" id="save">주소록에 저장</button>
     </div>
     <div class="quick">
       <a href="#profile">소개</a>
       <a href="#name">이름</a>
       <a href="#work">하는 일</a>
+      <a href="#press">인터뷰</a>
       <a href="#road">지나온 자리</a>
       <a href="#books">쓴 책</a>
       <a href="#try">혼자 해보실 것</a>
@@ -443,6 +465,21 @@
   </div>
 </section>
 
+<!-- 신문에 실린 이야기 -->
+<section id="press" class="s-blue">
+  <div class="wrap">
+    <div class="eyebrow rise">INTERVIEW</div>
+    <h2 class="sec rise">신문에 실린 이야기</h2>
+    <a class="press rise" href="https://www.lecturernews.com/news/articleView.html?idxno=210215" target="_blank" rel="noopener">
+      <div class="meta"><span>한국강사신문 · 칼럼니스트 인터뷰</span><span>2026. 9. 8.</span><span>한민 기자</span></div>
+      <h3>이서윤 작가, “글쓰기를 시작한 분들의 페이스메이커가 되겠습니다!”</h3>
+      <blockquote>이제는 제가 읽고 쓰기를 시작하려는 분들의 페이스메이커가 되고 싶습니다.</blockquote>
+      <p>36년 공직을 건너온 길, 5년 동안 고전을 읽으며 스스로에게 던진 세 질문, 마라톤에서 배운 지구력, 그리고 앞으로 할 일을 이야기했습니다.</p>
+      <span class="go">기사 전문 읽기 →</span>
+    </a>
+  </div>
+</section>
+
 <!-- 지나온 자리 -->
 <section id="road">
   <div class="wrap">
@@ -548,8 +585,8 @@
       <a class="rise" href="https://outis-books.github.io/"><span class="k">대문</span><span class="v">outis-books.github.io</span></a>
     </div>
     <div class="cta">
-      <button class="btn fill" id="save2">주소록에 저장</button>
-      <button class="btn" id="copy2">이 페이지 링크 복사</button>
+      <button class="btn fill" id="copy2">이 페이지 링크 복사</button>
+      <button class="btn" id="save2">주소록에 저장</button>
     </div>
   </div>
 </section>
