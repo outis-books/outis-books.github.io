@@ -25,6 +25,7 @@
   --plum: #6E3655;
   --line: #EAD7CB;
   --leaf1: #E59A7C; --leaf2: #E8C17E; --leaf3: #D58E96;
+  --h1c: #A9472A; --h2c: #2F6B57; --h3c: #8A6414; --h4c: #6E3655;
   --serif: "Gowun Batang", "Nanum Myeongjo", "Batang", serif;
   --sans: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
 }
@@ -34,6 +35,7 @@
     --card: #1E2530; --ink: #E9ECE6; --ink-soft: #B5BCC6;
     --plum: #D9A3C0; --line: #333D4B; color-scheme: dark;
     --leaf1: #C8683F; --leaf2: #C99A45; --leaf3: #A65050;
+    --h1c: #EE9C7E; --h2c: #8FCBB3; --h3c: #E4C277; --h4c: #D9A3C0;
   }
 }
 :root[data-theme="dark"] {
@@ -41,13 +43,14 @@
   --card: #1E2530; --ink: #E9ECE6; --ink-soft: #B5BCC6;
   --plum: #D9A3C0; --line: #333D4B; color-scheme: dark;
   --leaf1: #C8683F; --leaf2: #C99A45; --leaf3: #A65050;
+  --h1c: #EE9C7E; --h2c: #8FCBB3; --h3c: #E4C277; --h4c: #D9A3C0;
 }
 body {
   background: var(--paper);
   background-image: linear-gradient(160deg, var(--paper3) 0%, var(--paper) 45%, var(--paper2) 100%);
   background-attachment: fixed;
   color: var(--ink);
-  font-family: var(--sans); font-size: 16px; line-height: 1.8;
+  font-family: var(--sans); font-size: 17px; line-height: 1.8;
   padding-block: 32px 48px;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
@@ -71,7 +74,11 @@ body {
 .l1 { fill: var(--leaf1); } .l2 { fill: var(--leaf2); } .l3 { fill: var(--leaf3); }
 .soft { opacity: .55; }
 .head { display: flex; flex-direction: column; gap: 14px; text-align: center; }
-.eyebrow { font-size: 13px; letter-spacing: .18em; color: var(--plum); font-weight: 700; }
+.eyebrow { font-family: var(--serif); font-size: 21px; letter-spacing: .06em; color: var(--plum); font-weight: 700; }
+section:nth-of-type(1) h2 { color: var(--h1c); border-color: var(--h1c); }
+section:nth-of-type(2) h2 { color: var(--h2c); border-color: var(--h2c); }
+section:nth-of-type(3) h2 { color: var(--h3c); border-color: var(--h3c); }
+section:nth-of-type(4) h2 { color: var(--h4c); border-color: var(--h4c); }
 h1 {
   font-family: var(--serif); font-weight: 700; font-size: 30px; line-height: 1.45;
   margin: 0; text-wrap: balance;
@@ -86,16 +93,16 @@ h1 {
 .season cite { display: block; margin-top: 4px; font-family: var(--sans); font-style: normal; font-size: 13px; color: var(--ink-soft); }
 section { display: flex; flex-direction: column; gap: 12px; }
 h2 {
-  font-family: var(--serif); font-size: 19px; font-weight: 700; margin: 0;
-  padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  font-family: var(--serif); font-size: 21px; font-weight: 700; margin: 0;
+  padding-bottom: 8px; border-bottom: 1.5px solid var(--line);
 }
 ul { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: 6px; }
 li::marker { color: var(--plum); }
 dl { margin: 0; display: grid; grid-template-columns: 4.5em 1fr; gap: 10px 12px; }
 dt { font-weight: 700; color: var(--plum); }
 dd { margin: 0; color: var(--ink-soft); }
-.host { color: var(--ink-soft); font-size: 15px; }
-.host strong { color: var(--ink); font-size: 16px; }
+.host { color: var(--ink-soft); font-size: 16px; }
+.host strong { color: var(--ink); font-size: 17px; }
 .reply {
   border-top: 1px solid var(--line); padding-top: 28px;
   text-align: center; display: flex; flex-direction: column; gap: 10px;
@@ -147,7 +154,7 @@ dd { margin: 0; color: var(--ink-soft); }
     </svg>
   </div>
   <header class="head">
-    <div class="eyebrow">초대장</div>
+    <div class="eyebrow">귀한 분을 초대합니다</div>
     <h1>읽고 쓰는 자리에<br>다시 모십니다</h1>
     <div class="rule"></div>
   </header>
