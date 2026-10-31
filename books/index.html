@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="이서윤 · 우티스">
+<meta property="og:title" content="우티스 북살롱 · 함께 읽은 책">
+<meta property="og:description" content="2022–2026 · 46권 · 해를 누르시면 그해 책이 펼쳐집니다">
+<meta property="og:url" content="https://outis-books.github.io/books/">
+<meta property="og:image" content="https://outis-books.github.io/books/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630"><title>북살롱 함께 읽은 책</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* 해마다 단추 하나, 누르면 그해 책이 표지로 펼쳐지는 서가 한 장 */
+:root {
+  --bg1: #F8EBCF; --bg2: #F7E4D6; --bg3: #F3DCE0;
+  --card: #FFFCF8; --ink: #1F2A3D; --soft: #5A6272; --line: #EAD7CB;
+  --y2022: #A9472A; --y2023: #2F6B57; --y2024: #8A6414; --y2025: #6E3655; --y2026: #34557A;
+  --serif: "Gowun Batang", "Nanum Myeongjo", serif;
+  --sans: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg1: #2A231C; --bg2: #2A2024; --bg3: #2B1F26; --card: #1E2530; --ink: #E9ECE6; --soft: #B5BCC6; --line: #333D4B;
+    --y2022: #EE9C7E; --y2023: #8FCBB3; --y2024: #E4C277; --y2025: #D9A3C0; --y2026: #9DB9DE; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg1: #2A231C; --bg2: #2A2024; --bg3: #2B1F26; --card: #1E2530; --ink: #E9ECE6; --soft: #B5BCC6; --line: #333D4B;
+  --y2022: #EE9C7E; --y2023: #8FCBB3; --y2024: #E4C277; --y2025: #D9A3C0; --y2026: #9DB9DE; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg2);
+  background-image: linear-gradient(165deg, var(--bg1), var(--bg2) 45%, var(--bg3));
+  background-attachment: fixed; color: var(--ink);
+  font-family: var(--sans); font-size: 17px; line-height: 1.7; word-break: keep-all;
+  padding-block: 36px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+header { text-align: center; display: flex; flex-direction: column; gap: 8px; }
+.eb { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--y2025); }
+h1 { font-family: var(--serif); font-size: 40px; line-height: 1.3; margin: 0; }
+.sum { color: var(--soft); font-size: 17px; }
+nav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+nav a {
+  --c: var(--ink);
+  display: flex; flex-direction: column; align-items: center; min-width: 108px;
+  padding: 10px 16px; border: 2px solid var(--c); border-radius: 6px; background: var(--card);
+  color: var(--c); text-decoration: none; font-family: var(--serif); font-size: 22px; font-weight: 700; line-height: 1.3;
+}
+nav a small { font-family: var(--sans); font-size: 13px; font-weight: 500; }
+nav a[aria-current="true"] { background: var(--c); color: var(--card); }
+nav a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 26px 22px 30px; box-shadow: 0 12px 40px rgba(150, 90, 70, .10); }
+.panel h2 {
+  margin: 0 0 22px; font-family: var(--serif); font-size: 30px; color: var(--c);
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 10px; border-bottom: 2px solid var(--c);
+}
+.panel h2 small { font-family: var(--sans); font-size: 17px; }
+.shelf { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 26px 20px; }
+.book { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.cover {
+  aspect-ratio: 2 / 3; max-width: 100%; border-radius: 3px 6px 6px 3px; position: relative; overflow: hidden;
+  background: var(--bc); color: #FFFDF8; display: flex; flex-direction: column; justify-content: space-between;
+  padding: 18px 12px 14px 20px; box-shadow: 0 6px 14px rgba(60, 40, 30, .18);
+}
+.cover::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 9px; background: rgba(0, 0, 0, .16); }
+.cover::after { content: ""; position: absolute; left: 20px; right: 12px; top: 50%; height: 1px; background: rgba(255, 255, 255, .45); }
+.cover b { font-family: var(--serif); font-size: 18px; line-height: 1.35; font-weight: 700; }
+.cover i { font-style: normal; font-size: 12px; opacity: .9; }
+.cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cover.has-photo { padding: 0; background: var(--line); }
+.cover.has-photo::before, .cover.has-photo::after { display: none; }
+.meta { display: flex; flex-direction: column; }
+.meta strong { font-size: 16px; line-height: 1.4; }
+.meta span { font-size: 14px; color: var(--soft); }
+footer { text-align: center; font-family: var(--serif); color: var(--soft); }
+@media (max-width: 480px) {
+  h1 { font-size: 32px; }
+  nav a { min-width: 0; flex: 1 1 28%; font-size: 19px; padding: 8px 6px; }
+  .shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
+}
+</style>
+
+</head><body>
+<div class="wrap">
+  <header>
+    <div class="eb">우티스 북살롱</div>
+    <h1>함께 읽은 책</h1>
+    <div class="sum">2022 – 2026 · 46권 · 해를 누르시면 그해 책이 펼쳐집니다</div>
+  </header>
+  <nav id="years" aria-label="해마다 보기"></nav>
+  <section class="panel" id="panel" aria-live="polite"></section>
+  <footer>우티스 북살롱 · 이서윤</footer>
+</div>
+
+<script>
+const BOOKS = {
+  2022: [["인생에서 너무 늦은 때란 없습니다","애나 메리 로버트슨 모지스"],["아몬드","손원평"],["떨림과 울림","김상욱"],["불편한 편의점","김호연"],["웰씽킹","켈리 최"],["그리스인 조르바","니코스 카잔차키스"],["나는 내가 아픈 줄도 모르고","가토 다이조"]],
+  2023: [["브람스를 좋아하세요","프랑수아즈 사강"],["인형의 집","헨리크 입센"],["케이크와 맥주","서머싯 몸"],["북호텔","외젠 다비"],["파친코 1·2","이민진"],["마담 보바리","귀스타브 플로베르"],["놓아버림","데이비드 호킨스"],["나는 고양이로소이다","나쓰메 소세키"],["아버지의 해방일지","정지아"]],
+  2024: [["아침 그리고 저녁","욘 포세"],["필경사 바틀비","허먼 멜빌"],["죽음의 수용소에서","빅터 프랭클"],["붕대 감기","윤이형"],["여행의 이유","김영하"],["히로시마 내 사랑","마르그리트 뒤라스"],["아비투스","도리스 메르틴"],["호밀밭의 파수꾼","제롬 데이비드 샐린저"],["80일간의 세계일주","쥘 베른"],["밝은 밤","최은영"],["나중에 온 이 사람에게도","존 러스킨"],["이중 하나는 거짓말","김애란"],["꿈꾸고 사랑했네 해처럼 맑게","전영애"],["어린 왕자","생텍쥐페리"],["달과 6펜스","서머싯 몸"],["사양","다자이 오사무"]],
+  2025: [["영혼의 자서전","니코스 카잔차키스"],["푸른 들판을 걷다","클레어 키건"],["채식주의자","한강"],["야성의 부름","잭 런던"],["스토너","존 윌리엄스"],["내가 틀릴 수도 있습니다","비욘 나티코 린데블라드"],["스무낮 읽고 스무밤 느끼다","박완서 외"]],
+  2026: [["돈키호테","미겔 데 세르반테스"],["말","장폴 사르트르"],["일리아스","호메로스"],["시와 진실","요한 볼프강 폰 괴테"],["사냥꾼의 스케치","이반 투르게네프"],["인간의 내밀한 역사","시어도어 젤딘"],["사피엔스","유발 하라리"]]
+};
+// 표지: 알라딘에서 받은 그림 (읽은 판과 다를 수 있음)
+const PHOTOS = {"인생에서 너무 늦은 때란 없습니다":"covers/01.jpg","아몬드":"covers/02.jpg","떨림과 울림":"covers/03.jpg","불편한 편의점":"covers/04.jpg","웰씽킹":"covers/05.jpg","그리스인 조르바":"covers/06.jpg","나는 내가 아픈 줄도 모르고":"covers/07.jpg","브람스를 좋아하세요":"covers/08.jpg","인형의 집":"covers/09.jpg","케이크와 맥주":"covers/10.jpg","북호텔":"covers/11.jpg","파친코 1·2":"covers/12.jpg","마담 보바리":"covers/13.jpg","놓아버림":"covers/14.jpg","나는 고양이로소이다":"covers/15.jpg","아버지의 해방일지":"covers/16.jpg","아침 그리고 저녁":"covers/17.jpg","필경사 바틀비":"covers/18.jpg","죽음의 수용소에서":"covers/19.jpg","붕대 감기":"covers/20.jpg","여행의 이유":"covers/21.jpg","히로시마 내 사랑":"covers/22.jpg","아비투스":"covers/23.jpg","호밀밭의 파수꾼":"covers/24.jpg","80일간의 세계일주":"covers/25.jpg","밝은 밤":"covers/26.jpg","나중에 온 이 사람에게도":"covers/27.jpg","이중 하나는 거짓말":"covers/28.jpg","꿈꾸고 사랑했네 해처럼 맑게":"covers/29.jpg","어린 왕자":"covers/30.jpg","달과 6펜스":"covers/31.jpg","사양":"covers/32.jpg","영혼의 자서전":"covers/33.jpg","푸른 들판을 걷다":"covers/34.jpg","채식주의자":"covers/35.jpg","야성의 부름":"covers/36.jpg","스토너":"covers/37.jpg","내가 틀릴 수도 있습니다":"covers/38.jpg","스무낮 읽고 스무밤 느끼다":"covers/39.jpg","돈키호테":"covers/40.jpg","말":"covers/41.jpg","일리아스":"covers/42.jpg","시와 진실":"covers/43.jpg","사냥꾼의 스케치":"covers/44.jpg","인간의 내밀한 역사":"covers/45.jpg","사피엔스":"covers/46.jpg"};
+const SHADES = ["#B8674B","#5E8C7A","#B08A3E","#8C5A78","#557A9E","#9C6F5A","#6F8A5A","#A35D6A"];
+const years = Object.keys(BOOKS);
+const nav = document.getElementById("years"), panel = document.getElementById("panel");
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+years.forEach(y => {
+  const a = document.createElement("a");
+  a.href = "#y" + y; a.dataset.year = y; a.style.setProperty("--c", `var(--y${y})`);
+  a.innerHTML = `${y}년<small>${BOOKS[y].length}권</small>`;
+  a.addEventListener("click", e => { e.preventDefault(); show(y); try { history.replaceState(null, "", "#y" + y); } catch (_) {} });
+  nav.appendChild(a);
+});
+
+function show(y) {
+  nav.querySelectorAll("a").forEach(a => a.setAttribute("aria-current", a.dataset.year === y ? "true" : "false"));
+  panel.style.setProperty("--c", `var(--y${y})`);
+  const items = BOOKS[y].map(([t, w], i) => {
+    const photo = PHOTOS[t] ? `<img src="${esc(PHOTOS[t])}" alt="">` : "";
+    return `<li class="book"><div class="cover${photo ? " has-photo" : ""}" style="--bc:${SHADES[(i + Number(y)) % SHADES.length]}" aria-hidden="true"><b>${esc(t)}</b><i>${esc(w)}</i>${photo}</div>
+      <div class="meta"><strong>${esc(t)}</strong><span>${esc(w)}</span></div></li>`;
+  }).join("");
+  panel.innerHTML = `<h2>${y}년<small>${BOOKS[y].length}권</small></h2><ul class="shelf">${items}</ul>`;
+}
+
+const fromHash = (location.hash || "").replace("#y", "");
+show(BOOKS[fromHash] ? fromHash : years[years.length - 1]);
+</script>
+
+</body></html>
