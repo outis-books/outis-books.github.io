@@ -16,27 +16,37 @@
 <style>
 /* 한 장짜리 초대 카드: 폰 화면 폭에 맞춘 세로 편지 한 통 */
 :root {
-  --paper: #EDF0EA;
-  --card: #FBFCF8;
+  --paper: #F7E4D6;
+  --paper2: #F3DCE0;
+  --paper3: #F8EBCF;
+  --card: #FFFCF8;
   --ink: #1F2A3D;
   --ink-soft: #4A5466;
   --plum: #6E3655;
-  --line: #D3D9CF;
+  --line: #EAD7CB;
+  --leaf1: #E59A7C; --leaf2: #E8C17E; --leaf3: #D58E96;
   --serif: "Gowun Batang", "Nanum Myeongjo", "Batang", serif;
   --sans: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #161B22; --card: #1E2530; --ink: #E9ECE6; --ink-soft: #B5BCC6;
+    --paper: #2A2024; --paper2: #2B1F26; --paper3: #2A231C;
+    --card: #1E2530; --ink: #E9ECE6; --ink-soft: #B5BCC6;
     --plum: #D9A3C0; --line: #333D4B; color-scheme: dark;
+    --leaf1: #C8683F; --leaf2: #C99A45; --leaf3: #A65050;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #161B22; --card: #1E2530; --ink: #E9ECE6; --ink-soft: #B5BCC6;
+  --paper: #2A2024; --paper2: #2B1F26; --paper3: #2A231C;
+  --card: #1E2530; --ink: #E9ECE6; --ink-soft: #B5BCC6;
   --plum: #D9A3C0; --line: #333D4B; color-scheme: dark;
+  --leaf1: #C8683F; --leaf2: #C99A45; --leaf3: #A65050;
 }
 body {
-  background: var(--paper); color: var(--ink);
+  background: var(--paper);
+  background-image: linear-gradient(160deg, var(--paper3) 0%, var(--paper) 45%, var(--paper2) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
   font-family: var(--sans); font-size: 16px; line-height: 1.8;
   padding-block: 32px 48px;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
@@ -46,9 +56,20 @@ body {
 .letter {
   max-width: 540px; margin: 0 auto;
   background: var(--card); border: 1px solid var(--line); border-radius: 4px;
-  padding: 44px 28px 36px;
+  box-shadow: 0 12px 40px rgba(150, 90, 70, .12);
+  padding: 96px 28px 120px;
   display: flex; flex-direction: column; gap: 36px;
+  position: relative; overflow: hidden;
 }
+.letter > *:not(.leaves) { position: relative; z-index: 1; }
+.leaves { position: absolute; inset: 0; pointer-events: none; }
+.leaves svg { position: absolute; }
+.leaves .top { top: 0; right: 0; width: 260px; height: 130px; }
+.leaves .left { top: 8px; left: 6px; width: 90px; height: 80px; }
+.leaves .bottom { bottom: 0; left: 0; width: 280px; height: 130px; }
+.leaves .br { bottom: 10px; right: 10px; width: 80px; height: 80px; }
+.l1 { fill: var(--leaf1); } .l2 { fill: var(--leaf2); } .l3 { fill: var(--leaf3); }
+.soft { opacity: .55; }
 .head { display: flex; flex-direction: column; gap: 14px; text-align: center; }
 .eyebrow { font-size: 13px; letter-spacing: .18em; color: var(--plum); font-weight: 700; }
 h1 {
@@ -86,11 +107,40 @@ dd { margin: 0; color: var(--ink-soft); }
 }
 .code { color: var(--ink); letter-spacing: .08em; font-variant-numeric: tabular-nums; }
 .apply:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-@media (max-width: 380px) { .letter { padding: 36px 20px 30px; } h1 { font-size: 26px; } }
+@media (max-width: 380px) {
+  .letter { padding: 84px 20px 110px; } h1 { font-size: 26px; }
+  .leaves .top { width: 210px; height: 105px; } .leaves .bottom { width: 230px; height: 107px; }
+}
 </style>
 
 </head><body>
 <main class="letter">
+  <div class="leaves" aria-hidden="true">
+    <svg width="0" height="0" style="position:absolute">
+      <defs>
+        <path id="maple" d="M50 4 L58 24 L72 16 L68 38 L90 32 L80 48 L97 54 L76 63 L82 78 L60 71 L53 90 L51 99 L49 99 L47 90 L40 71 L18 78 L24 63 L3 54 L20 48 L10 32 L32 38 L28 16 L42 24 Z"/>
+        <path id="ginkgo" d="M50 98 L49 62 C30 60 8 44 6 16 C22 22 38 22 47 14 L50 30 L53 14 C62 22 78 22 94 16 C92 44 70 60 51 62 L52 98 Z"/>
+      </defs>
+    </svg>
+    <svg class="top" viewBox="0 0 260 130">
+      <use href="#maple" class="l1" transform="translate(178 6) rotate(18 50 50) scale(.72)"/>
+      <use href="#maple" class="l3" transform="translate(130 46) rotate(-24 50 50) scale(.42)"/>
+      <use href="#ginkgo" class="l2" transform="translate(214 70) rotate(-40 50 50) scale(.38)"/>
+      <use href="#maple" class="l2 soft" transform="translate(96 4) rotate(40 50 50) scale(.3)"/>
+    </svg>
+    <svg class="left" viewBox="0 0 90 80">
+      <use href="#ginkgo" class="l2 soft" transform="translate(10 8) rotate(28 50 50) scale(.5)"/>
+    </svg>
+    <svg class="bottom" viewBox="0 0 280 130">
+      <use href="#maple" class="l3" transform="translate(8 56) rotate(-16 50 50) scale(.66)"/>
+      <use href="#maple" class="l1" transform="translate(82 74) rotate(30 50 50) scale(.46)"/>
+      <use href="#ginkgo" class="l2" transform="translate(140 84) rotate(22 50 50) scale(.36)"/>
+      <use href="#maple" class="l2 soft" transform="translate(190 96) rotate(-38 50 50) scale(.26)"/>
+    </svg>
+    <svg class="br" viewBox="0 0 80 80">
+      <use href="#maple" class="l1 soft" transform="translate(20 20) rotate(12 50 50) scale(.45)"/>
+    </svg>
+  </div>
   <header class="head">
     <div class="eyebrow">초대장</div>
     <h1>읽고 쓰는 자리에<br>다시 모십니다</h1>
