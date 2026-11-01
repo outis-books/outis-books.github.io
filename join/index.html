@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="이서윤 · 우티스">
+<meta property="og:title" content="우티스 북살롱 초대장">
+<meta property="og:description" content="읽고 쓰는 자리, 함께 · 책 읽기와 글쓰기를 꾸준히 이어 가고 싶은 40·50대 여성을 모십니다">
+<meta property="og:url" content="https://outis-books.github.io/join/">
+<meta property="og:image" content="https://outis-books.github.io/join/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<title>우티스 북살롱 초대장</title>
+<style>*{box-sizing:border-box;}</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* 한 장짜리 초대 카드: 폰 화면 폭에 맞춘 세로 편지 한 통 */
+:root {
+  --paper: #F7E4D6;
+  --paper2: #F3DCE0;
+  --paper3: #F8EBCF;
+  --card: #FFFCF8;
+  --ink: #1F2A3D;
+  --ink-soft: #4A5466;
+  --plum: #6E3655;
+  --line: #EAD7CB;
+  --leaf1: #E59A7C; --leaf2: #E8C17E; --leaf3: #D58E96;
+  --h1c: #A9472A; --h2c: #2F6B57; --h3c: #8A6414; --h4c: #6E3655; --h5c: #34557A;
+  --serif: "Gowun Batang", "Nanum Myeongjo", "Batang", serif;
+  --sans: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #2A2024; --paper2: #2B1F26; --paper3: #2A231C;
+    --card: #1E2530; --ink: #E9ECE6; --ink-soft: #B5BCC6;
+    --plum: #D9A3C0; --line: #333D4B; color-scheme: dark;
+    --leaf1: #C8683F; --leaf2: #C99A45; --leaf3: #A65050;
+    --h1c: #EE9C7E; --h2c: #8FCBB3; --h3c: #E4C277; --h4c: #D9A3C0; --h5c: #9DB9DE;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #2A2024; --paper2: #2B1F26; --paper3: #2A231C;
+  --card: #1E2530; --ink: #E9ECE6; --ink-soft: #B5BCC6;
+  --plum: #D9A3C0; --line: #333D4B; color-scheme: dark;
+  --leaf1: #C8683F; --leaf2: #C99A45; --leaf3: #A65050;
+  --h1c: #EE9C7E; --h2c: #8FCBB3; --h3c: #E4C277; --h4c: #D9A3C0; --h5c: #9DB9DE;
+}
+body {
+  background: var(--paper);
+  background-image: linear-gradient(160deg, var(--paper3) 0%, var(--paper) 45%, var(--paper2) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--sans); font-size: 17px; line-height: 1.8;
+  padding-block: 32px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  word-break: keep-all;
+}
+.letter {
+  max-width: 540px; margin: 0 auto;
+  background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(150, 90, 70, .12);
+  padding: 96px 28px 120px;
+  display: flex; flex-direction: column; gap: 36px;
+  position: relative; overflow: hidden;
+}
+.letter > *:not(.leaves) { position: relative; z-index: 1; }
+.leaves { position: absolute; inset: 0; pointer-events: none; }
+.leaves svg { position: absolute; }
+.leaves .top { top: 0; right: 0; width: 260px; height: 130px; }
+.leaves .left { top: 8px; left: 6px; width: 90px; height: 80px; }
+.leaves .bottom { bottom: 0; left: 0; width: 280px; height: 130px; }
+.leaves .br { bottom: 10px; right: 10px; width: 80px; height: 80px; }
+.l1 { fill: var(--leaf1); } .l2 { fill: var(--leaf2); } .l3 { fill: var(--leaf3); }
+.soft { opacity: .55; }
+.head { display: flex; flex-direction: column; gap: 14px; text-align: center; }
+.eyebrow { font-family: var(--serif); font-size: 21px; letter-spacing: .06em; color: var(--plum); font-weight: 700; }
+section:nth-of-type(1) h2 { color: var(--h1c); border-color: var(--h1c); }
+section:nth-of-type(2) h2 { color: var(--h2c); border-color: var(--h2c); }
+section:nth-of-type(3) h2 { color: var(--h3c); border-color: var(--h3c); }
+section:nth-of-type(4) h2 { color: var(--h4c); border-color: var(--h4c); }
+section:nth-of-type(5) h2 { color: var(--h5c); border-color: var(--h5c); }
+h1 {
+  font-family: var(--serif); font-weight: 700; font-size: 30px; line-height: 1.45;
+  margin: 0; text-wrap: balance;
+}
+.rule { width: 40px; height: 1px; background: var(--plum); margin: 4px auto 0; }
+.greet p { margin: 0 0 14px; }
+.greet p:last-child { margin: 0; }
+.season {
+  margin: 0 0 18px; padding: 4px 0 4px 16px; border-left: 2px solid var(--leaf1);
+  font-family: var(--serif); font-size: 18px; color: var(--ink);
+}
+.season cite { display: block; margin-top: 4px; font-family: var(--sans); font-style: normal; font-size: 13px; color: var(--ink-soft); }
+section { display: flex; flex-direction: column; gap: 12px; }
+h2 {
+  font-family: var(--serif); font-size: 21px; font-weight: 700; margin: 0;
+  padding-bottom: 8px; border-bottom: 1.5px solid var(--line);
+}
+ul { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: 6px; }
+li::marker { color: var(--plum); }
+dl { margin: 0; display: grid; grid-template-columns: 4.5em 1fr; gap: 10px 12px; }
+dt { font-weight: 700; color: var(--plum); }
+dd { margin: 0; color: var(--ink-soft); }
+.host { color: var(--ink-soft); font-size: 16px; }
+.host strong { color: var(--ink); font-size: 17px; }
+.reply {
+  border-top: 1px solid var(--line); padding-top: 28px;
+  text-align: center; display: flex; flex-direction: column; gap: 10px;
+}
+.reply p { margin: 0; }
+.reply .sign { font-family: var(--serif); font-size: 18px; margin-top: 8px; }
+.note { font-size: 13px; color: var(--ink-soft); }
+.qr-box { align-self: center; background: #FFFFFF; padding: 12px; border: 1px solid var(--line); border-radius: 4px; margin-top: 6px; }
+#qr { width: 160px; height: 160px; }
+#qr img, #qr canvas { width: 160px; height: 160px; display: block; }
+.apply {
+  align-self: center; margin-top: 4px; padding: 12px 36px; border-radius: 4px;
+  background: var(--plum); color: var(--card); font-weight: 700; text-decoration: none;
+}
+.strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.strip img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 3px; box-shadow: 0 4px 10px rgba(60, 40, 30, .18); }
+.more {
+  align-self: flex-start; padding: 10px 20px; border: 1.5px solid var(--h4c); border-radius: 4px;
+  color: var(--h4c); font-weight: 700; text-decoration: none; font-size: 16px;
+}
+.more:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+section:nth-of-type(3) .more { border-color: var(--h3c); color: var(--h3c); }
+.code { color: var(--ink); letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.apply:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+@media (max-width: 380px) {
+  .letter { padding: 84px 20px 110px; } h1 { font-size: 26px; }
+  .leaves .top { width: 210px; height: 105px; } .leaves .bottom { width: 230px; height: 107px; }
+}
+</style>
+
+</head><body>
+<main class="letter">
+  <div class="leaves" aria-hidden="true">
+    <svg width="0" height="0" style="position:absolute">
+      <defs>
+        <path id="maple" d="M50 4 L58 24 L72 16 L68 38 L90 32 L80 48 L97 54 L76 63 L82 78 L60 71 L53 90 L51 99 L49 99 L47 90 L40 71 L18 78 L24 63 L3 54 L20 48 L10 32 L32 38 L28 16 L42 24 Z"/>
+        <path id="ginkgo" d="M50 98 L49 62 C30 60 8 44 6 16 C22 22 38 22 47 14 L50 30 L53 14 C62 22 78 22 94 16 C92 44 70 60 51 62 L52 98 Z"/>
+      </defs>
+    </svg>
+    <svg class="top" viewBox="0 0 260 130">
+      <use href="#maple" class="l1" transform="translate(178 6) rotate(18 50 50) scale(.72)"/>
+      <use href="#maple" class="l3" transform="translate(130 46) rotate(-24 50 50) scale(.42)"/>
+      <use href="#ginkgo" class="l2" transform="translate(214 70) rotate(-40 50 50) scale(.38)"/>
+      <use href="#maple" class="l2 soft" transform="translate(96 4) rotate(40 50 50) scale(.3)"/>
+    </svg>
+    <svg class="left" viewBox="0 0 90 80">
+      <use href="#ginkgo" class="l2 soft" transform="translate(10 8) rotate(28 50 50) scale(.5)"/>
+    </svg>
+    <svg class="bottom" viewBox="0 0 280 130">
+      <use href="#maple" class="l3" transform="translate(8 56) rotate(-16 50 50) scale(.66)"/>
+      <use href="#maple" class="l1" transform="translate(82 74) rotate(30 50 50) scale(.46)"/>
+      <use href="#ginkgo" class="l2" transform="translate(140 84) rotate(22 50 50) scale(.36)"/>
+      <use href="#maple" class="l2 soft" transform="translate(190 96) rotate(-38 50 50) scale(.26)"/>
+    </svg>
+    <svg class="br" viewBox="0 0 80 80">
+      <use href="#maple" class="l1 soft" transform="translate(20 20) rotate(12 50 50) scale(.45)"/>
+    </svg>
+  </div>
+  <header class="head">
+    <div class="eyebrow">귀한 분을 초대합니다</div>
+    <h1>읽고 쓰는 자리,<br>함께</h1>
+    <div class="rule"></div>
+  </header>
+
+  <div class="greet">
+    <p>올해 달력도 어느덧 한두 장 남았습니다. 한 해가 이렇게 가는구나 싶어 아쉬운 마음이 큽니다.</p>
+    <p>우티스 북살롱은 2022년부터 직장인들이 모여 책을 읽어 온 독서모임입니다. 지금까지 46권을 함께 읽었습니다.</p>
+    <p>이제 직장인 모임이라는 울타리를 걷고, 책을 읽고 글을 쓰고 싶은 분이라면 누구나 오실 수 있는 자리로 새로 엽니다.</p>
+  </div>
+
+  <section>
+    <h2>이렇게 함께합니다</h2>
+    <ul>
+      <li>한 권을 함께 읽고 이야기를 나눕니다.</li>
+      <li>책을 읽고 나서 짧은 글을 써 봅니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>이런 분을 모십니다</h2>
+    <ul>
+      <li>책 읽기와 글쓰기를 꾸준히 이어 가고 싶은 40·50대 여성</li>
+      <li>혼자서는 자꾸 미뤄져 함께 읽을 동무가 필요한 분</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>함께 읽은 책</h2>
+    <div class="strip" aria-hidden="true">
+      <img src="../books/covers/06.jpg" alt=""><img src="../books/covers/12.jpg" alt=""><img src="../books/covers/30.jpg" alt=""><img src="../books/covers/37.jpg" alt=""><img src="../books/covers/46.jpg" alt="">
+    </div>
+    <p class="host">『그리스인 조르바』『파친코』『어린 왕자』『스토너』『사피엔스』까지, 2022년부터 2026년까지 읽은 46권을 서가에 모아 두었습니다.</p>
+    <a class="more" href="https://outis-books.github.io/books/">함께 읽은 책 46권 보기</a>
+  </section>
+
+  <section>
+    <h2>모임 안내</h2>
+    <p class="host">모임 장소와 시간 등 자세한 사항은 차후에 따로 연락드리겠습니다.</p>
+  </section>
+
+  <section>
+    <h2>모임을 꾸리는 사람</h2>
+    <p class="host"><strong>이서윤</strong><br>
+      한국강사신문에 칼럼 「이서윤의 문장연구소」를 연재하고 있습니다.</p>
+    <dl>
+      <dt>저서</dt><dd>『아무튼 지치지 않도록』</dd>
+      <dt>공저</dt><dd>『그림책을 활용한 감정코칭』<br>『생각을 여는 창』<br>『삶이 레몬을 준다면 레모네이드를 만들어라』</dd>
+    </dl>
+  </section>
+
+  <footer class="reply">
+    <p>함께하실 마음이 있으시면 바로 신청해 주십시오.</p>
+    <div class="qr-box"><div id="qr" aria-label="신청 큐알코드"></div></div>
+    <p class="note">휴대폰 카메라로 비추면 「우티스의 북살롱」 밴드 가입 창이 열립니다.</p>
+    <a class="apply" id="apply" href="https://band.us/n/a4a0b9sesbL8m">밴드로 신청하기</a>
+    <p class="note">초대 코드 <strong class="code">ZX5-GC1-CV</strong></p>
+    <p class="sign">우티스 북살롱 이서윤 드림</p>
+  </footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  new QRCode(document.getElementById("qr"), {
+    text: document.getElementById("apply").href,
+    width: 320, height: 320, colorDark: "#1F2A3D", colorLight: "#FFFFFF",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+</script>
+
+</body></html>
