@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta property="og:title" content="일대일 책쓰기 코칭 — 기획서부터 초고 50편까지">
+<meta property="og:description" content="책을 내고 싶은데 아직 원고가 없는 분을 위한 12주 일대일 코칭 · 150만 원">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+<title>이서윤의 책쓰기 코칭</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* 원고지 한 장: 제목은 원고지 칸에, 12주는 칸 열두 개, 원고가 5편씩 쌓여 50편이 되는 길 */
+:root{
+  --paper:#f3f2ec; --sheet:#fffffa; --ink:#1d3430; --ink-soft:#4b5d58; --muted:#82908b;
+  --grid:#e2b2a5; --red:#b0442c; --red-wash:#f6e5de; --green:#2f5a51; --green-wash:#e6eeea; --line:#e2e1d8;
+  --serif:'Gowun Batang','Noto Serif KR',serif; --sans:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121917; --sheet:#18211e; --ink:#e7ece8; --ink-soft:#b3c0bb; --muted:#7f8e89;
+  --grid:#5c3a32; --red:#ec8d74; --red-wash:#3a251f; --green:#8cc3b5; --green-wash:#21302b; --line:#2b3733; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121917; --sheet:#18211e; --ink:#e7ece8; --ink-soft:#b3c0bb; --muted:#7f8e89;
+  --grid:#5c3a32; --red:#ec8d74; --red-wash:#3a251f; --green:#8cc3b5; --green-wash:#21302b; --line:#2b3733; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:16.5px;line-height:1.85;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 44px}
+.sheet{max-width:760px;margin:0 auto;background:var(--sheet);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.in{padding-inline:clamp(20px,6vw,56px)}
+
+/* 머리 */
+.hero{padding-block:44px 40px;border-bottom:2px solid var(--ink)}
+.kicker{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.24em;color:var(--red)}
+.cells{display:flex;flex-wrap:wrap;margin:22px 0 0;--c:clamp(44px,11.5vw,72px)}
+.cells span{width:var(--c);height:var(--c);border:1px solid var(--grid);margin:0 -1px -1px 0;display:flex;align-items:center;justify-content:center;
+  font-size:calc(var(--c)*.6);font-weight:700;line-height:1;color:var(--ink)}
+.cells span.e{color:transparent}
+.cells span.r{color:var(--red)}
+.sub{font-size:clamp(22px,5vw,30px);font-weight:700;margin:18px 0 0;line-height:1.4;text-wrap:balance}
+.lede{font-family:var(--sans);font-size:16px;color:var(--ink-soft);margin:14px 0 0;max-width:33em}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;font-family:var(--sans);font-size:14px;font-weight:700}
+.facts span{border:1px solid var(--ink);padding:5px 14px;border-radius:2px}
+.facts .pay{background:var(--ink);color:var(--sheet)}
+
+h2{font-family:var(--sans);font-size:20px;font-weight:900;margin:48px 0 16px;letter-spacing:-.01em;text-wrap:balance}
+h2 small{display:block;font-size:12px;font-weight:700;letter-spacing:.22em;color:var(--red);margin-bottom:4px}
+p{margin:0 0 16px}
+
+/* 12주 칸 */
+.road{display:grid;grid-template-columns:repeat(12,1fr);border-left:1px solid var(--grid);border-top:1px solid var(--grid);font-family:var(--sans)}
+.road div{border-right:1px solid var(--grid);border-bottom:1px solid var(--grid);padding:8px 2px 9px;text-align:center;min-width:0;font-variant-numeric:tabular-nums}
+.road .w{display:block;font-size:11px;color:var(--muted)}
+.road .k{display:block;font-size:13px;font-weight:900;margin-top:2px;color:var(--ink)}
+.road .plan{background:var(--green-wash)}
+.road .plan .k{color:var(--green)}
+.road .wr .k{color:var(--red)}
+.road .bar{display:block;height:28px;margin:6px auto 0;width:60%;background:var(--red-wash);position:relative;border-radius:1px}
+.road .bar i{position:absolute;left:0;right:0;bottom:0;background:var(--red);border-radius:1px}
+.roadnote{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:10px 0 0}
+
+/* 단계 */
+.steps{display:grid;gap:0;border-top:1px solid var(--ink)}
+.st{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.st .when{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--red);letter-spacing:.04em;padding-top:4px}
+.st .when b{display:block;font-size:26px;font-weight:900;letter-spacing:-.02em;line-height:1.1;color:var(--ink);margin-top:2px;font-variant-numeric:tabular-nums}
+.st .t{font-size:20px;font-weight:700;line-height:1.45}
+.st .d{font-family:var(--sans);font-size:14.5px;color:var(--ink-soft);margin-top:6px;line-height:1.75;min-width:0}
+.st ul{margin:10px 0 0;padding-left:18px}
+.st li{margin:3px 0}
+
+/* 남는 것 */
+.keep{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.keep div{border:1px solid var(--grid);padding:18px 16px 16px;min-width:0;background:var(--sheet)}
+.keep .n{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--red);letter-spacing:.08em;line-height:1}
+.keep b{display:block;font-size:17px;margin-top:8px}
+.keep span{font-family:var(--sans);font-size:13.5px;color:var(--ink-soft);line-height:1.65;display:block;margin-top:4px}
+
+/* 안내 */
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:15px}
+th,td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{width:84px;color:var(--muted);font-weight:700;white-space:nowrap}
+td b{font-size:17px}
+.tbd{display:inline-block;font-size:12.5px;font-weight:700;color:var(--red);background:var(--red-wash);border:1px dashed var(--red);padding:0 9px;border-radius:2px}
+
+/* 코치 */
+.host{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;border-top:1px solid var(--ink);padding-top:22px}
+.seal{width:56px;height:56px;border:2px solid var(--red);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;line-height:1.05;text-align:center}
+.host .b{font-family:var(--sans);font-size:14.5px;line-height:1.85;color:var(--ink-soft);min-width:0}
+.host .nm{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);display:block;margin-bottom:2px}
+.host .bk{color:var(--ink)}
+
+.cta{margin:52px 0 0;background:var(--ink);color:var(--sheet);padding-block:36px 40px}
+.cta .t{font-size:clamp(21px,4.8vw,26px);font-weight:700;line-height:1.5;text-wrap:balance}
+.cta .s{font-family:var(--sans);font-size:14.5px;opacity:.82;margin-top:12px;line-height:1.8}
+footer{text-align:center;font-family:var(--sans);font-size:12.5px;color:var(--muted);padding:20px 16px 24px}
+
+/* 신청 */
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-family:var(--sans)}
+.flow li{border-top:2px solid var(--red);padding:12px 2px 0;min-width:0}
+.flow .k{display:block;font-family:var(--serif);font-size:15px;font-weight:700;color:var(--red);letter-spacing:.08em}
+.flow .t{display:block;font-size:15px;font-weight:700;margin-top:4px;color:var(--ink)}
+.flow .d{display:block;font-size:13.5px;color:var(--ink-soft);line-height:1.65;margin-top:4px}
+.qs{margin:22px 0 0;border:1px solid var(--grid);padding:18px 20px 16px;font-family:var(--sans)}
+.qs .hd{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.06em}
+.qs ol{margin:8px 0 0;padding-left:22px;font-size:14.5px;line-height:1.9;color:var(--ink)}
+.qs .grp{color:var(--muted);font-size:13px}
+.btnrow{margin:20px 0 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-family:var(--sans)}
+.btn{display:inline-block;background:var(--red);color:var(--sheet);font-weight:900;font-size:16px;padding:13px 30px;border-radius:2px;text-decoration:none}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.btn.off{background:var(--line);color:var(--muted)}
+.refund{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:14.5px;margin-top:6px}
+.refund td{padding:11px 10px;border-bottom:1px solid var(--line)}
+.refund td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+.fine{font-family:var(--sans);font-size:13px;color:var(--muted);line-height:1.7;margin:10px 0 0}
+
+@media (max-width:600px){
+  .flow{grid-template-columns:1fr}
+  .road{grid-template-columns:repeat(6,1fr)}
+  .keep{grid-template-columns:1fr}
+  .st{grid-template-columns:1fr;gap:6px}
+  .st .when b{display:inline;font-size:20px;margin-left:6px}
+  th{width:64px}
+}
+</style>
+
+<div class="sheet">
+  <header class="hero in">
+    <div class="kicker">일대일 책쓰기 코칭 · 12주 과정</div>
+    <div class="cells" aria-label="내 책 한 권">
+      <span>내</span><span class="e">.</span><span class="r">책</span><span class="e">.</span><span>한</span><span>권</span>
+    </div>
+    <div class="sub">기획서부터 초고 50편까지</div>
+    <p class="lede">책을 내고 싶은데 아직 원고가 없는 분을 위한 과정입니다. 12주 동안 기획서를 쓰고, 목차를 짜고, 초고 50편을 완성합니다.</p>
+    <div class="facts"><span>일대일</span><span>12주</span><span>초고 50편</span><span class="pay">150만 원</span></div>
+  </header>
+
+  <div class="in">
+    <h2><small>12 WEEKS</small>열두 주의 길</h2>
+    <div class="road" aria-label="1주 기획, 2주 목차, 3주부터 12주까지 한 주 5편씩 써서 50편">
+      <div class="plan"><span class="w">1주</span><span class="k">기획</span></div>
+      <div class="plan"><span class="w">2주</span><span class="k">목차</span></div>
+      <div class="wr"><span class="w">3주</span><span class="k">5</span><span class="bar"><i style="height:10%"></i></span></div>
+      <div class="wr"><span class="w">4주</span><span class="k">10</span><span class="bar"><i style="height:20%"></i></span></div>
+      <div class="wr"><span class="w">5주</span><span class="k">15</span><span class="bar"><i style="height:30%"></i></span></div>
+      <div class="wr"><span class="w">6주</span><span class="k">20</span><span class="bar"><i style="height:40%"></i></span></div>
+      <div class="wr"><span class="w">7주</span><span class="k">25</span><span class="bar"><i style="height:50%"></i></span></div>
+      <div class="wr"><span class="w">8주</span><span class="k">30</span><span class="bar"><i style="height:60%"></i></span></div>
+      <div class="wr"><span class="w">9주</span><span class="k">35</span><span class="bar"><i style="height:70%"></i></span></div>
+      <div class="wr"><span class="w">10주</span><span class="k">40</span><span class="bar"><i style="height:80%"></i></span></div>
+      <div class="wr"><span class="w">11주</span><span class="k">45</span><span class="bar"><i style="height:90%"></i></span></div>
+      <div class="wr"><span class="w">12주</span><span class="k">50</span><span class="bar"><i style="height:100%"></i></span></div>
+    </div>
+    <p class="roadnote">숫자는 그 주까지 쌓인 초고 편수입니다. 한 주 5편 안팎이 기준이고, 쓰는 속도는 사람마다 맞춥니다.</p>
+
+    <h2><small>CURRICULUM</small>무엇을 하나요</h2>
+    <div class="steps">
+      <div class="st">
+        <div class="when">1주차<b>기획</b></div>
+        <div><div class="t">기획서 작성</div>
+          <div class="d">누구에게 무슨 이야기를 건넬 책인지 정합니다. 제목 후보, 독자, 쓰는 까닭, 비슷한 책과 다른 점을 한 장에 담습니다.</div></div>
+      </div>
+      <div class="st">
+        <div class="when">2주차<b>목차</b></div>
+        <div><div class="t">목차 구성</div>
+          <div class="d">기획서를 장과 꼭지로 나눕니다. 꼭지마다 무엇을 쓸지 한 줄씩 적어, 쓰다가 길을 잃지 않게 합니다.</div></div>
+      </div>
+      <div class="st">
+        <div class="when">3~12주차<b>원고·퇴고</b></div>
+        <div><div class="t">원고 작성과 퇴고</div>
+          <div class="d">목차 순서대로 초고 50편을 씁니다. 쓴 글을 보내 주시면 읽고 돌려드리고, 돌려받은 글을 다시 다듬습니다.
+            <ul>
+              <li>흐름과 구성: 꼭지가 목차의 자리에 맞게 서 있는지</li>
+              <li>문장: 겹치는 낱말, 늘어지는 문장, 맞춤법과 띄어쓰기</li>
+              <li>다음 주에 쓸 꼭지 미리 짚기</li>
+              <li>마지막 주: 50편을 처음부터 끝까지 다시 읽고 다듬기</li>
+            </ul></div></div>
+      </div>
+    </div>
+
+    <h2><small>WHAT YOU KEEP</small>12주 뒤 손에 남는 것</h2>
+    <div class="keep">
+      <div><span class="n">하나</span><b>기획서 한 장</b><span>누구에게 무슨 이야기를 건넬 책인지</span></div>
+      <div><span class="n">둘</span><b>목차</b><span>장과 꼭지, 꼭지마다 한 줄 메모</span></div>
+      <div><span class="n">셋</span><b>초고 50편</b><span>코칭을 거쳐 다듬은 한 권 분량의 원고</span></div>
+    </div>
+
+    <h2><small>DETAILS</small>안내</h2>
+    <div class="tbl"><table>
+      <tr><th>방식</th><td>일대일 코칭</td></tr>
+      <tr><th>기간</th><td>12주 기준 · 쓰는 속도에 따라 사람마다 달라질 수 있습니다</td></tr>
+      <tr><th>분량</th><td>한 주 5편 안팎</td></tr>
+      <tr><th>비용</th><td><b>150만 원</b></td></tr>
+      <tr><th>범위</th><td>초고 50편을 완성하기까지 코칭합니다. 출판사 투고와 출간은 이 코칭에서 다루지 않습니다.</td></tr>
+      <tr><th>신청</th><td>아래 신청서를 써 주시면 결제 계좌를 따로 보내 드립니다</td></tr>
+    </table></div>
+
+    <h2><small>COACH</small>함께 쓰는 사람</h2>
+    <div class="host">
+      <div class="seal">이서<br>윤</div>
+      <div class="b"><span class="nm">이서윤</span>
+        한국강사신문 「이서윤의 문장연구소」 연재<br>
+        <span class="bk">『아무튼 지치지 않도록』</span> 지은이<br>
+        공저 <span class="bk">『그림책을 활용한 감정코칭』 『생각을 여는 창』 『삶이 레몬을 준다면 레모네이드를 만들어라』</span><br>
+        (사)한국코치협회 인증 전문코치(KPC)</div>
+    </div>
+
+    <h2 id="apply"><small>APPLY</small>신청하기</h2>
+    <ol class="flow">
+      <li><span class="k">하나</span><span class="t">신청서 작성</span><span class="d">아래 버튼을 눌러 신청서를 써 주세요.</span></li>
+      <li><span class="k">둘</span><span class="t">결제 계좌 안내</span><span class="d">신청서를 받은 뒤 결제 계좌를 따로 보내 드립니다.</span></li>
+      <li><span class="k">셋</span><span class="t">코칭 시작</span><span class="d">입금을 확인하면 첫 주 일정을 함께 정합니다.</span></li>
+    </ol>
+
+    <div class="qs">
+      <div class="hd">신청서에서 여쭙는 것</div>
+      <ol>
+        <li>성명</li>
+        <li>연락처</li>
+        <li>이메일 주소</li>
+        <li>SNS 계정 주소 <span class="grp">(블로그, 인스타그램 등)</span></li>
+        <li>책을 내고 싶은 이유</li>
+        <li>글쓰기 주제</li>
+        <li>출간 이후 활동 계획</li>
+      </ol>
+    </div>
+
+    <div class="btnrow"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd8r4XFwUEVY4oZh2Iv5CLWN8I0LCBncrgNPGrRDNpdKDOaIg/viewform" target="_blank" rel="noopener">신청서 쓰기</a></div>
+
+    <h2><small>REFUND</small>환불 규정</h2>
+    <table class="refund">
+      <tr><td>코칭 시작 전</td><td>전액 환불</td></tr>
+      <tr><td>전체 기간의 3분의 1(4주)이 지나기 전</td><td>3분의 2 환불</td></tr>
+      <tr><td>전체 기간의 2분의 1(6주)이 지나기 전</td><td>2분의 1 환불</td></tr>
+      <tr><td>전체 기간의 2분의 1(6주)이 지난 뒤</td><td>환불 없음</td></tr>
+    </table>
+    <p class="fine">환불은 요청하신 날을 기준으로 셈하며, 요청하신 날부터 일주일 안에 보내 드립니다.</p>
+  </div>
+
+  <div class="cta"><div class="in">
+    <div class="t">쓰고 싶은 책이 있다면,<br>기획서 한 장부터 시작합니다.</div>
+    <div class="s">일대일 · 12주 · 기획서 → 목차 → 초고 50편 · 150만 원</div>
+    <a class="btn" style="margin-top:18px" href="https://docs.google.com/forms/d/e/1FAIpQLSd8r4XFwUEVY4oZh2Iv5CLWN8I0LCBncrgNPGrRDNpdKDOaIg/viewform" target="_blank" rel="noopener">신청서 쓰기</a>
+  </div></div>
+  <footer>이서윤의 문장연구소</footer>
+</div>
+</html>
