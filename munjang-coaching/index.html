@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이서윤의 문장 코칭</title>
+<meta name="description" content="1:1 글쓰기 코칭 · 8주 · 초고 40편과 기획서, 목차, 프롤로그와 에필로그">
+<meta property="og:title" content="이서윤의 문장 코칭">
+<meta property="og:description" content="1:1 글쓰기 코칭 · 8주">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg1:#fff3ea; --bg2:#fff9e6; --bg3:#fdeef2;
+    --paper:#fffdfa; --ink:#3a2f2c; --soft:#6e605b;
+    --accent:#b5566a; --accent-soft:#fbe1e7;
+    --peach:#ffe3d3; --lemon:#fff1c2; --pink:#fbdbe5; --mint:#dff2e6; --lilac:#ebe3f7;
+    --peach-ink:#a4532b; --lemon-ink:#8a6a10; --pink-ink:#a33d5b; --mint-ink:#2f7650; --lilac-ink:#6a4c9c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg1:#2a2220; --bg2:#29261d; --bg3:#2b2125; --paper:#332a28; --ink:#f5ece8; --soft:#cdbdb6;
+      --accent:#f0a3b4; --accent-soft:#4a2e35;
+      --peach:#4a3329; --lemon:#463c22; --pink:#4a2d37; --mint:#28402f; --lilac:#3a3148;
+      --peach-ink:#ffc3a3; --lemon-ink:#f3d77c; --pink-ink:#f6a9bf; --mint-ink:#9fe0b7; --lilac-ink:#cdb7f2;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg1:#2a2220; --bg2:#29261d; --bg3:#2b2125; --paper:#332a28; --ink:#f5ece8; --soft:#cdbdb6;
+    --accent:#f0a3b4; --accent-soft:#4a2e35;
+    --peach:#4a3329; --lemon:#463c22; --pink:#4a2d37; --mint:#28402f; --lilac:#3a3148;
+    --peach-ink:#ffc3a3; --lemon-ink:#f3d77c; --pink-ink:#f6a9bf; --mint-ink:#9fe0b7; --lilac-ink:#cdb7f2;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); font-family:'Noto Sans KR',sans-serif; font-size:16px; line-height:1.75;
+    background:var(--bg1); background-image:linear-gradient(170deg, var(--bg1) 0%, var(--bg2) 45%, var(--bg3) 100%); background-attachment:fixed; }
+  .wrap { max-width:640px; margin:0 auto; padding:48px 16px 60px; }
+  header { text-align:center; margin-bottom:28px; }
+  .eyebrow { display:inline-block; background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:13px; padding:4px 14px; border-radius:99px; margin:0 0 14px; }
+  h1 { font-family:'Noto Serif KR',serif; font-size:32px; line-height:1.35; margin:0 0 6px; color:var(--ink); }
+  .invite { font-family:'Noto Serif KR',serif; font-size:20px; font-weight:700; color:var(--accent); margin:0; letter-spacing:.3em; }
+  .invite::before, .invite::after { content:"✿"; font-size:13px; margin:0 10px; color:var(--pink-ink); opacity:.7; letter-spacing:0; vertical-align:middle; }
+  .intro { background:var(--paper); border-radius:28px; padding:28px 26px; box-shadow:0 6px 24px rgba(181,86,106,.08); font-family:'Noto Serif KR',serif; font-size:17px; }
+  .intro p { margin:0 0 12px; }
+  .intro .sign { text-align:right; color:var(--accent); font-weight:700; margin:18px 0 0; }
+  h2 { font-family:'Noto Serif KR',serif; font-size:19px; font-weight:700; margin:40px 0 14px; text-align:center; }
+  .weeks { list-style:none; margin:0; padding:18px; display:grid; grid-template-columns:1fr 1fr; gap:8px; border-radius:24px; }
+  .weeks li { background:var(--paper); border-radius:14px; padding:10px 14px; display:flex; gap:12px; align-items:baseline; }
+  .weeks b { font-weight:900; min-width:30px; }
+  ol.weeks:nth-of-type(1) { background:var(--peach); } ol.weeks:nth-of-type(1) b { color:var(--peach-ink); }
+  ol.weeks:nth-of-type(2) { background:var(--lemon); } ol.weeks:nth-of-type(2) b { color:var(--lemon-ink); }
+  ol.weeks:nth-of-type(3) { background:var(--pink); }  ol.weeks:nth-of-type(3) b { color:var(--pink-ink); }
+  .weeks li.draft { opacity:.92; }
+  .weeknote { color:var(--soft); font-size:14px; margin:12px 0 0; text-align:center; }
+  .same { background:var(--mint); border-radius:24px; padding:20px; }
+  .chips { margin:0; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+  .chips span { background:var(--paper); color:var(--mint-ink); font-weight:700; padding:8px 16px; border-radius:99px; }
+  .steps { list-style:none; margin:0; padding:20px 20px 6px; counter-reset:s; background:var(--lilac); border-radius:24px; }
+  .steps li { counter-increment:s; position:relative; padding:2px 0 14px 46px; }
+  .steps li::before { content:counter(s); position:absolute; left:0; top:0; width:32px; height:32px; border-radius:50%; background:var(--paper); color:var(--lilac-ink); font-weight:900; display:flex; align-items:center; justify-content:center; font-size:15px; }
+  .note { background:var(--paper); border-radius:20px; padding:16px 20px; text-align:center; box-shadow:0 4px 16px rgba(181,86,106,.06); }
+  .note p { margin:4px 0; }
+  .bio { list-style:none; margin:0; padding:20px 22px; background:var(--paper); border-radius:24px; box-shadow:0 4px 16px rgba(181,86,106,.06); }
+  .bio li { margin:6px 0; padding-left:18px; position:relative; }
+  .bio li::before { content:"·"; position:absolute; left:4px; color:var(--accent); font-weight:900; }
+  .drafts { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
+  .drafts div { background:var(--paper); border-radius:16px; padding:12px 8px; text-align:center; font-weight:900; font-size:17px; }
+  .drafts b { display:block; font-size:13px; color:var(--mint-ink); }
+  .chipnote { margin:10px 0 0; text-align:center; font-size:13.5px; color:var(--ink); }
+  .course { margin-top:44px; }
+  .cost { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; margin-top:8px; padding:12px 18px; border-radius:18px; background:var(--paper); font-size:14.5px; box-shadow:0 3px 12px rgba(181,86,106,.06); }
+  .cost .amt { font-size:20px; font-weight:900; }
+  .cost s { font-size:14px; font-weight:500; color:var(--soft); margin-right:4px; }
+  .cost em { font-style:normal; font-size:12px; font-weight:700; color:var(--accent); background:var(--accent-soft); padding:2px 8px; border-radius:99px; vertical-align:middle; }
+  .c4 .amt { color:var(--peach-ink); } .c6 .amt { color:var(--lemon-ink); } .c8 .amt { color:var(--pink-ink); }
+  .small { color:var(--soft); font-size:14px; }
+  .plans { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+  .plan { border-radius:24px; padding:22px 16px; text-align:center; }
+  .plan:nth-child(1) { background:var(--peach); } .plan:nth-child(1) h3 { color:var(--peach-ink); }
+  .plan:nth-child(2) { background:var(--lemon); } .plan:nth-child(2) h3 { color:var(--lemon-ink); }
+  .plan:nth-child(3) { background:var(--pink); }  .plan:nth-child(3) h3 { color:var(--pink-ink); }
+  .plan h3 { margin:0; font-size:22px; font-weight:900; }
+  .price { font-size:24px; font-weight:900; margin:4px 0 10px; color:var(--ink); }
+  .desc { margin:0; color:var(--ink); font-size:14.5px; }
+  .pace { display:inline-block; margin-top:12px; background:var(--paper); color:var(--soft); font-weight:700; font-size:12.5px; padding:4px 12px; border-radius:99px; }
+  .apply { display:block; text-decoration:none; background:var(--accent); color:#fff; border-radius:28px; padding:22px; text-align:center; font-weight:700; margin-top:40px; font-size:17px; }
+  .apply span { display:block; font-weight:400; font-size:15px; opacity:.9; }
+  .market { background:var(--paper); border-radius:24px; padding:18px; box-shadow:0 4px 16px rgba(181,86,106,.06); }
+  .market table { width:100%; border-collapse:collapse; font-size:14.5px; }
+  .market th { font-size:13px; color:var(--soft); font-weight:700; text-align:left; padding:6px 8px; border-bottom:1px solid var(--accent-soft); }
+  .market td { padding:9px 8px; border-bottom:1px dashed var(--accent-soft); vertical-align:top; }
+  .market td:last-child, .market th:last-child { text-align:right; white-space:nowrap; font-weight:700; }
+  .market tr.mine td { background:var(--accent-soft); color:var(--accent); font-weight:700; border-bottom:none; }
+  .market tr.mine td:first-child { border-radius:12px 0 0 12px; } .market tr.mine td:last-child { border-radius:0 12px 12px 0; }
+  .market tr.mine span { display:block; font-size:12px; font-weight:500; }
+  .mnote { margin:10px 0 0; font-size:12.5px; color:var(--soft); text-align:center; }
+  .price s { display:block; font-size:14px; font-weight:500; color:var(--soft); }
+  .first { text-align:center; color:var(--accent); font-weight:700; margin:16px 0 0; }
+  footer { margin-top:30px; color:var(--soft); font-size:13px; text-align:center; }
+  @media (max-width:560px) { h1 { font-size:27px; } .plans { grid-template-columns:1fr; } .weeks { grid-template-columns:1fr; } .intro { padding:22px 20px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">1:1 글쓰기 코칭 · 문장 코칭</p>
+    <h1>이서윤의 문장연구소</h1>
+    <p class="invite">초대합니다</p>
+  </header>
+
+  <div class="intro">
+    <p>살면서 책 한 권 내고 싶은 마음, 누구나 한 번쯤 품습니다. 그런데 막상 쓰려고 앉으면 첫 줄부터 막힙니다. 무엇을 써야 할지, 어디서부터 시작해야 할지 몰라 마음만 접어 두신 분도 많을 겁니다.</p>
+    <p>저도 그랬습니다. 그래도 한 편씩 쌓아 책을 냈고, 지금은 한국강사신문에 칼럼 「이서윤의 문장연구소」를 연재하고 있습니다.</p>
+    <p>이번에 그 길을 곁에서 함께 걸을 분을 모십니다. 헬스장에서 PT 받듯 일대일로 만나, 원고의 방향을 잡고 기획서와 목차를 함께 세운 뒤 초고를 한 편씩 쌓아 갑니다.</p>
+    <p>마치는 날, 손에는 초고 40편과 기획서, 목차, 프롤로그와 에필로그가 남습니다.</p>
+    <p>마음속에 품어 온 책이 있다면, 이 자리로 초대합니다.</p>
+    <p class="sign">이서윤의 문장연구소 이서윤 드림</p>
+  </div>
+
+  <h2 class="course">글쓰기 코칭_8주간</h2>
+  <ol class="weeks">
+    <li><b>1주</b><span>원고 방향</span></li>
+    <li><b>2주</b><span>기획서 쓰기</span></li>
+    <li><b>3주</b><span>목차 짜기</span></li>
+    <li><b>4주</b><span>초고 쓰기</span></li>
+    <li><b>5주</b><span>초고 살피기 · 흐름</span></li>
+    <li><b>6주</b><span>초고 살피기 · 문장</span></li>
+    <li><b>7주</b><span>프롤로그와 에필로그</span></li>
+    <li><b>8주</b><span>초고 처음부터 다시 읽고 마무리</span></li>
+  </ol>
+  <div class="cost c8"><span>초고 40편 · 만남 8번</span><span class="amt">50만 원</span></div>
+  <p class="weeknote">초고는 첫 주부터 평일 하루 한 편씩, 1,500자 안팎으로 써요. 주말은 쉬어요.<br>만남은 일주일에 한 번, 대면 또는 줌으로 해요.</p>
+
+  <h2>마치는 날 손에 남는 것</h2>
+  <div class="same">
+    <p class="chips"><span>초고 40편</span><span>기획서</span><span>목차</span><span>프롤로그와 에필로그</span></p>
+  </div>
+
+  <h2>이렇게 해요</h2>
+  <ol class="steps">
+    <li>평일 하루 한 편, 초고를 쓰면 보내 주세요.</li>
+    <li>고칠 자리를 짚어서 돌려 드릴게요.</li>
+    <li>고치는 건 직접 해 주세요.</li>
+    <li>일주일에 한 번, 대면 또는 줌으로 만나 같이 살펴요.</li>
+  </ol>
+
+  <h2>미리 말씀드려요</h2>
+  <div class="note">
+    <p>출간은 함께하지 않아요. 원고를 다 갖추는 데까지 곁에 있을게요.</p>  </div>
+
+  <h2>함께할 사람, 이서윤</h2>
+  <ul class="bio">
+    <li>『아무튼 지치지 않도록』(2024)을 썼고, 공저 세 권을 냈어요.<br><span class="small">『그림책을 활용한 감정코칭』 · 『생각을 여는 창』 · 『삶이 레몬을 준다면 레모네이드를 만들어라』</span></li>
+    <li>한국강사신문에 칼럼 「이서윤의 문장연구소」를 연재하고 있어요.</li>
+    <li>한 달 글쓰기 수업, 북클럽, 고전 벽돌책 완독 챌린지를 꾸려요.</li>
+    <li>독립서점에서 시 낭독 모임을 맡았어요(2024.11~2025.4).</li>
+    <li>KPC 인증전문코치 · 독서지도사</li>
+  </ul>
+
+  <h2>시중 값과 견주어 보세요</h2>
+  <div class="market">
+    <table>
+      <tr><th>시중 코칭</th><th>들어 있는 것</th><th>값</th></tr>
+      <tr><td>1:1 글쓰기 레슨</td><td>4주 · 수업 4회</td><td>32만 원</td></tr>
+      <tr><td>1:1 책 주제 잡기</td><td>1시간 1회</td><td>20만 원</td></tr>
+      <tr><td>책쓰기 7주 과정</td><td>강의 + 1:1 코칭 3회</td><td>43만~60만 원</td></tr>
+      <tr><td>출간 동행 코칭</td><td>8~10회 · 기획과 투고 자문</td><td>80만~200만 원</td></tr>
+      <tr class="mine"><td>이서윤의 문장 코칭</td><td>8주 · 1:1 만남 8회 · 초고 40편까지</td><td>50만 원</td></tr>
+    </table>
+    <p class="mnote">2026년 11월 온라인 코칭 상품 값을 조사했습니다.</p>
+  </div>
+
+  <a class="apply" href="https://docs.google.com/forms/d/e/1FAIpQLSdkgb5ht1XLDvDcgj7-QSWhA_BAYSMvyQ0EMeNoyaV2-FRSoQ/viewform" target="_blank" rel="noopener">
+    신청하기
+    <span>누르면 신청서가 열려요</span>
+  </a>
+
+  <footer>이서윤의 문장 코칭</footer>
+</div>
+</body>
+</html>
