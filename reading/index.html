@@ -459,7 +459,7 @@ function draw(axScore, hb, bias, mean, thick, thin, thinnest){
 
   h += `<div class="actions">
     <button class="btn ghost" onclick="location.reload()">다시 진단하기</button>
-    <button class="btn ghost" onclick="window.print()">결과 저장 · 인쇄</button>
+    <button class="btn ghost" onclick="saveImg('result')">결과 저장 · 인쇄</button>
   </div>`;
 
   h += `<div class="footer">
@@ -478,5 +478,28 @@ function draw(axScore, hb, bias, mean, thick, thin, thinnest){
   window.scrollTo({top:0, behavior:'instant'});
 }
 </script>
-</body>
+<!-- 저장: 휴대폰(밴드·카톡·블로그 앱 안 브라우저)에서는 인쇄가 막혀 있어 그림으로 만들어 보여 준다 -->
+<style>
+#saveBox{position:fixed;inset:0;background:rgba(30,24,20,.72);z-index:9999;display:none;flex-direction:column;align-items:center;padding:18px 14px;overflow:auto}
+#saveBox .sb-msg{color:#fff;font:700 15px/1.5 'Noto Sans KR',sans-serif;text-align:center;margin:4px 0 12px}
+#saveBox img{max-width:100%;border-radius:6px;box-shadow:0 8px 30px rgba(0,0,0,.4);background:#fff}
+#saveBox .sb-row{display:flex;gap:10px;margin:14px 0 6px;flex-wrap:wrap;justify-content:center}
+#saveBox button,#saveBox a{font:700 14px 'Noto Sans KR',sans-serif;padding:10px 18px;border-radius:30px;border:0;background:#fff;color:#2a211c;text-decoration:none;cursor:pointer}
+</style>
+<div id="saveBox"><div class="sb-msg" id="sbMsg">그림을 만들고 있습니다…</div><img id="sbImg" alt=""><div class="sb-row"><a id="sbDl" download="나의 독서 편식 진단.png">그림 내려받기</a><button onclick="window.print()">인쇄</button><button onclick="document.getElementById('saveBox').style.display='none'">닫기</button></div></div>
+<script>
+function saveImg(id){
+  var box=document.getElementById('saveBox'),img=document.getElementById('sbImg'),msg=document.getElementById('sbMsg');
+  box.style.display='flex';img.removeAttribute('src');msg.textContent='그림을 만들고 있습니다…';
+  function go(){
+    var el=document.getElementById(id);
+    html2canvas(el,{scale:2,useCORS:true,backgroundColor:getComputedStyle(document.body).backgroundColor||'#fff',
+      ignoreElements:function(n){return n.classList&&(n.classList.contains('actions')||n.classList.contains('noprint')||n.classList.contains('cross'));}
+    }).then(function(c){var u=c.toDataURL('image/png');img.src=u;document.getElementById('sbDl').href=u;
+      msg.innerHTML='휴대폰에서는 아래 그림을 <b>길게 눌러 「이미지 저장」</b>을 누르세요.<br>컴퓨터에서는 「그림 내려받기」를 누르시면 됩니다.';
+    }).catch(function(){msg.textContent='그림을 만들지 못했습니다. 화면을 캡처해 주세요.';});
+  }
+  if(window.html2canvas)go();else{var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';s.onload=go;s.onerror=function(){msg.textContent='그림을 만들지 못했습니다. 화면을 캡처해 주세요.';};document.head.appendChild(s);}
+}
+</script></body>
 </html>
