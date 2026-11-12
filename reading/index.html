@@ -486,7 +486,7 @@ function draw(axScore, hb, bias, mean, thick, thin, thinnest){
 #saveBox .sb-row{display:flex;gap:10px;margin:14px 0 6px;flex-wrap:wrap;justify-content:center}
 #saveBox button,#saveBox a{font:700 14px 'Noto Sans KR',sans-serif;padding:10px 18px;border-radius:30px;border:0;background:#fff;color:#2a211c;text-decoration:none;cursor:pointer}
 </style>
-<div id="saveBox"><div class="sb-msg" id="sbMsg">그림을 만들고 있습니다…</div><img id="sbImg" alt=""><div class="sb-row"><a id="sbDl" download="나의 독서 편식 진단.png">그림 내려받기</a><button onclick="document.getElementById('saveBox').style.display='none'">닫기</button></div></div>
+<div id="saveBox"><div class="sb-msg" id="sbMsg">그림을 만들고 있습니다…</div><img id="sbImg" alt=""><div class="sb-row"><button onclick="document.getElementById('saveBox').style.display='none'">닫기</button></div></div>
 <script>
 function saveImg(id){
   var box=document.getElementById('saveBox'),img=document.getElementById('sbImg'),msg=document.getElementById('sbMsg');
@@ -495,8 +495,8 @@ function saveImg(id){
     var el=document.getElementById(id);
     html2canvas(el,{scale:2,useCORS:true,backgroundColor:getComputedStyle(document.body).backgroundColor||'#fff',
       ignoreElements:function(n){return n.classList&&(n.classList.contains('actions')||n.classList.contains('noprint')||n.classList.contains('cross'));}
-    }).then(function(c){var u=c.toDataURL('image/png');img.src=u;document.getElementById('sbDl').href=u;
-      msg.innerHTML='휴대폰에서는 아래 그림을 <b>길게 눌러 「이미지 저장」</b>을 누르세요.<br>컴퓨터에서는 「그림 내려받기」를 누르시면 됩니다.';
+    }).then(function(c){var u=c.toDataURL('image/png');img.src=u;
+      msg.innerHTML='아래 그림을 <b>손가락으로 꾹 눌러 「이미지 저장」</b>을 고르세요.<br>컴퓨터에서는 그림 위에서 마우스 오른쪽 단추 → 「이미지 저장」입니다.';
     }).catch(function(){msg.textContent='그림을 만들지 못했습니다. 화면을 캡처해 주세요.';});
   }
   if(window.html2canvas)go();else{var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';s.onload=go;s.onerror=function(){msg.textContent='그림을 만들지 못했습니다. 화면을 캡처해 주세요.';};document.head.appendChild(s);}
