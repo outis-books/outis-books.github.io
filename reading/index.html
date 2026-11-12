@@ -486,7 +486,7 @@ function draw(axScore, hb, bias, mean, thick, thin, thinnest){
 #saveBox .sb-row{display:flex;gap:10px;margin:14px 0 6px;flex-wrap:wrap;justify-content:center}
 #saveBox button,#saveBox a{font:700 14px 'Noto Sans KR',sans-serif;padding:10px 18px;border-radius:30px;border:0;background:#fff;color:#2a211c;text-decoration:none;cursor:pointer}
 </style>
-<div id="saveBox"><div class="sb-msg" id="sbMsg">그림을 만들고 있습니다…</div><img id="sbImg" alt=""><div class="sb-row"><button id="sbShare" style="display:none">사진첩에 저장</button><button onclick="document.getElementById('saveBox').style.display='none'">닫기</button></div></div>
+<div id="saveBox"><div class="sb-msg" id="sbMsg">그림을 만들고 있습니다…</div><img id="sbImg" alt=""><div class="sb-row"><button id="sbOpen" style="display:none">크롬에서 열기</button><button onclick="document.getElementById('saveBox').style.display='none'">닫기</button></div></div>
 <script>
 function saveImg(id){
   var box=document.getElementById('saveBox'),img=document.getElementById('sbImg'),msg=document.getElementById('sbMsg');
@@ -496,7 +496,7 @@ function saveImg(id){
     html2canvas(el,{scale:2,useCORS:true,backgroundColor:getComputedStyle(document.body).backgroundColor||'#fff',
       ignoreElements:function(n){return n.classList&&(n.classList.contains('actions')||n.classList.contains('noprint')||n.classList.contains('cross'));}
     }).then(function(c){var u=c.toDataURL('image/png');img.src=u;
-      var ag=navigator.userAgent||'',inApp=/Instagram|FBAN|FBAV|KAKAOTALK|NAVER|BAND|Line\//i.test(ag);msg.innerHTML=inApp?'인스타·카톡·밴드 안에서 연 화면이라 <b>저장이 막혀 있습니다.</b><br>이 화면을 <b>캡처</b>하시거나, 오른쪽 위 ⋮ → 「외부 브라우저에서 열기」로 열어 주세요.':'그림을 <b>길게 누르면</b> 저장할 수 있습니다.';try{c.toBlob(function(b){var fl=new File([b],'결과.png',{type:'image/png'});if(!inApp&&navigator.canShare&&navigator.canShare({files:[fl]})){var sb=document.getElementById('sbShare');sb.style.display='inline-block';sb.onclick=function(){navigator.share({files:[fl]}).catch(function(){});};}});}catch(e){}
+      var ag=navigator.userAgent||'',inApp=/Instagram|FBAN|FBAV|KAKAOTALK|NAVER|BAND|Line\//i.test(ag),andr=/Android/i.test(ag);if(inApp){msg.innerHTML='인스타·카톡·밴드 안에서 연 화면은 <b>갤러리 저장이 막혀 있습니다.</b><br>'+(andr?'아래 「크롬에서 열기」를 누른 뒤 다시 해 주세요. 지금 화면은 캡처하셔도 됩니다.':'지금 화면을 캡처해 주세요. 또는 오른쪽 위 ⋯ → 「외부 브라우저에서 열기」로 열어 주세요.');if(andr){var ob=document.getElementById('sbOpen');ob.style.display='inline-block';ob.onclick=function(){location.href='intent://'+location.host+location.pathname+'#Intent;scheme=https;package=com.android.chrome;end';};}}else{c.toBlob(function(bl){var u2=URL.createObjectURL(bl),a=document.createElement('a');a.href=u2;a.download='나의 독서 편식 진단.png';document.body.appendChild(a);a.click();a.remove();msg.innerHTML='<b>갤러리(다운로드)에 저장했습니다.</b><br>안 보이면 아래 그림을 길게 눌러 「이미지 저장」을 고르세요.';});}
     }).catch(function(){msg.textContent='그림을 만들지 못했습니다. 화면을 캡처해 주세요.';});
   }
   if(window.html2canvas)go();else{var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';s.onload=go;s.onerror=function(){msg.textContent='그림을 만들지 못했습니다. 화면을 캡처해 주세요.';};document.head.appendChild(s);}
