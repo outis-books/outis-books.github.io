@@ -459,7 +459,7 @@ function draw(axScore, hb, bias, mean, thick, thin, thinnest){
 
   h += `<div class="actions">
     <button class="btn ghost" onclick="location.reload()">다시 진단하기</button>
-    <button class="btn ghost" onclick="saveImg('result')">결과 저장 · 인쇄</button>
+    <button class="btn ghost" onclick="saveImg('result')">결과 저장</button>
   </div>`;
 
   h += `<div class="footer">
@@ -486,7 +486,7 @@ function draw(axScore, hb, bias, mean, thick, thin, thinnest){
 #saveBox .sb-row{display:flex;gap:10px;margin:14px 0 6px;flex-wrap:wrap;justify-content:center}
 #saveBox button,#saveBox a{font:700 14px 'Noto Sans KR',sans-serif;padding:10px 18px;border-radius:30px;border:0;background:#fff;color:#2a211c;text-decoration:none;cursor:pointer}
 </style>
-<div id="saveBox"><div class="sb-msg" id="sbMsg">그림을 만들고 있습니다…</div><img id="sbImg" alt=""><div class="sb-row"><a id="sbDl" download="나의 독서 편식 진단.png">그림 내려받기</a><button onclick="window.print()">인쇄</button><button onclick="document.getElementById('saveBox').style.display='none'">닫기</button></div></div>
+<div id="saveBox"><div class="sb-msg" id="sbMsg">그림을 만들고 있습니다…</div><img id="sbImg" alt=""><div class="sb-row"><a id="sbDl" download="나의 독서 편식 진단.png">그림 내려받기</a><button onclick="document.getElementById('saveBox').style.display='none'">닫기</button></div></div>
 <script>
 function saveImg(id){
   var box=document.getElementById('saveBox'),img=document.getElementById('sbImg'),msg=document.getElementById('sbMsg');
